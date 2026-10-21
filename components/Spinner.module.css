@@ -1,0 +1,57 @@
+
+@layer base {
+  .spinner {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: currentColor;
+  }
+   10	  
+   11	  .spinnerInner {
+   12	    position: absolute;
+   13	    width: 100%;
+   14	    height: 100%;
+   15	    border-radius: 50%;
+   16	    border: 2px solid transparent;
+   17	    border-top-color: var(--spinner-color, var(--primary));
+   18	    animation: spin var(--animation-duration-slow) linear infinite;
+   19	  }
+   20	  
+   21	  .sm {
+   22	    width: 1rem;
+   23	    height: 1rem;
+   24	  }
+   25	  
+   26	  .sm .spinnerInner {
+   27	    border-width: 2px;
+   28	  }
+   29	  
+   30	  .md {
+   31	    width: 1.5rem;
+   32	    height: 1.5rem;
+   33	  }
+   34	  
+   35	  .md .spinnerInner {
+   36	    border-width: 2.5px;
+   37	  }
+   38	  
+   39	  .lg {
+   40	    width: 2.5rem;
+   41	    height: 2.5rem;
+   42	  }
+   43	  
+   44	  .lg .spinnerInner {
+   45	    border-width: 3px;
+   46	  }
+   47	  
+   48	  @keyframes spin {
+   49	    0% {
+   50	      transform: rotate(0deg);
+   51	    }
+   52	    100% {
+   53	      transform: rotate(360deg);
+   54	    }
+   55	  }
+   56	}

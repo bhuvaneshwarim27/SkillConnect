@@ -1,0 +1,220 @@
+
+@layer base {
+  .calendar {
+    min-width: 18rem;
+    font-family: var(--font-family-base);
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: var(--spacing-4);
+   10	    position: relative;
+   11	  }
+   12	
+   13	  .nav {
+   14	    position: absolute;
+   15	    top: var(--spacing-4);
+   16	    right: var(--spacing-4);
+   17	    display: flex;
+   18	    align-items: center;
+   19	    gap: var(--spacing-1);
+   20	  }
+   21	
+   22	  .button_previous,
+   23	  .button_next {
+   24	    display: inline-flex;
+   25	    align-items: center;
+   26	    justify-content: center;
+   27	    width: 2rem;
+   28	    height: 2rem;
+   29	    border-radius: var(--radius-sm);
+   30	    background-color: transparent;
+   31	    color: var(--card-foreground);
+   32	    border: none;
+   33	    cursor: pointer;
+   34	    transition: background-color var(--animation-duration-fast) ease;
+   35	  }
+   36	
+   37	  .button_previous:hover,
+   38	  .button_next:hover {
+   39	    background-color: var(--muted);
+   40	  }
+   41	
+   42	  .button_previous:active,
+   43	  .button_next:active {
+   44	    background-color: var(--muted);
+   45	    transform: scale(0.97);
+   46	  }
+   47	
+   48	  .button_previous svg,
+   49	  .button_next svg {
+   50	    width: 1.25rem;
+   51	    height: 1.25rem;
+   52	    fill: currentColor;
+   53	  }
+   54	
+   55	  .months {
+   56	    width: 100%;
+   57	  }
+   58	
+   59	  .month {
+   60	    width: 100%;
+   61	  }
+   62	
+   63	  .month_grid {
+   64	    width: 100%;
+   65	    border-collapse: collapse;
+   66	  }
+   67	
+   68	  .month_caption {
+   69	    height: 2rem;
+   70	    display: flex;
+   71	    align-items: center;
+   72	    margin-bottom: var(--spacing-2);
+   73	  }
+   74	
+   75	  .caption_label {
+   76	    font-weight: 600;
+   77	    font-size: 1rem;
+   78	    color: var(--card-foreground);
+   79	  }
+   80	
+   81	  .weekdays {
+   82	    margin-bottom: var(--spacing-1);
+   83	  }
+   84	
+   85	  .weekday {
+   86	    width: 2.5rem;
+   87	    height: 2.5rem;
+   88	    display: flex;
+   89	    align-items: center;
+   90	    justify-content: center;
+   91	    font-size: 0.8rem;
+   92	    font-weight: 500;
+   93	    color: var(--muted-foreground);
+   94	  }
+   95	
+   96	  .cell {
+   97	    position: relative;
+   98	  }
+   99	
+  100	  .day {
+  101	    position: relative;
+  102	    width: 2.5rem;
+  103	    height: 2.5rem;
+  104	    display: flex;
+  105	    align-items: center;
+  106	    justify-content: center;
+  107	  }
+  108	
+  109	  .day_button {
+  110	    width: 100%;
+  111	    height: 100%;
+  112	    display: flex;
+  113	    align-items: center;
+  114	    justify-content: center;
+  115	    border: none;
+  116	    background-color: transparent;
+  117	    color: inherit;
+  118	    font-size: 0.9rem;
+  119	    font-weight: 400;
+  120	    border-radius: var(--radius-sm);
+  121	    cursor: pointer;
+  122	    transition:
+  123	      background-color var(--animation-duration-fast) ease,
+  124	      color var(--animation-duration-fast) ease;
+  125	  }
+  126	
+  127	  .day_button:hover {
+  128	    background-color: var(--muted);
+  129	    color: var(--card-foreground);
+  130	  }
+  131	
+  132	  .day_button:active:hover {
+  133	    background-color: var(--primary);
+  134	    color: var(--primary-foreground);
+  135	    transform: scale(0.97);
+  136	  }
+  137	
+  138	  .selected .day_button {
+  139	    background-color: var(--primary);
+  140	    color: var(--primary-foreground);
+  141	    font-weight: 500;
+  142	  }
+  143	
+  144	  .selected .day_button:hover {
+  145	    background-color: color-mix(in srgb, var(--primary) 90%, black);
+  146	    color: var(--primary-foreground);
+  147	  }
+  148	
+  149	  .today .day_button {
+  150	    border: 1px solid var(--primary);
+  151	    font-weight: 500;
+  152	  }
+  153	
+  154	  .today.selected .day_button {
+  155	    border-color: var(--primary-foreground);
+  156	  }
+  157	
+  158	  .range_middle .day_button {
+  159	    background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+  160	    color: var(--foreground);
+  161	    border-radius: 0;
+  162	  }
+  163	
+  164	  .range_end .day_button {
+  165	    background-color: var(--primary);
+  166	    color: var(--primary-foreground);
+  167	    border-top-left-radius: 0;
+  168	    border-bottom-left-radius: 0;
+  169	  }
+  170	
+  171	  .outside .day_button {
+  172	    color: var(--muted-foreground);
+  173	    opacity: 0.6;
+  174	  }
+  175	
+  176	  .disabled .day_button {
+  177	    opacity: 0.3;
+  178	    cursor: not-allowed;
+  179	    background-color: transparent;
+  180	    color: var(--card-foreground);
+  181	  }
+  182	
+  183	  .disabled .day_button:hover {
+  184	    background-color: transparent;
+  185	  }
+  186	
+  187	  .footer {
+  188	    margin-top: var(--spacing-4);
+  189	    padding-top: var(--spacing-2);
+  190	    border-top: 1px solid var(--border);
+  191	    display: flex;
+  192	    justify-content: space-between;
+  193	  }
+  194	
+  195	  .hidden {
+  196	    display: none;
+  197	  }
+  198	
+  199	  .chevron {
+  200	    display: flex;
+  201	  }
+  202	
+  203	  /* Dark mode adjustments */
+  204	  :global(.dark) .range_middle .day_button {
+  205	    background-color: color-mix(in srgb, var(--primary) 20%, var(--background));
+  206	    color: var(--foreground);
+  207	  }
+  208	
+  209	  :global(.dark) .day_button:hover {
+  210	    background-color: var(--muted);
+  211	    color: var(--card-foreground);
+  212	  }
+  213	
+  214	  :global(.dark) .day_button:active:hover {
+  215	    background-color: var(--primary);
+  216	    color: var(--primary-foreground);
+  217	  }
+  218	}
+  219	

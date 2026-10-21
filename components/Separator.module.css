@@ -1,0 +1,29 @@
+
+@layer base {
+  .separator {
+    position: relative;
+    width: 100%;
+    border: none;
+    background: linear-gradient(
+      to right, 
+      transparent, 
+      var(--border) 10%, 
+   10	      var(--border) 90%, 
+   11	      transparent
+   12	    );
+   13	    height: 1px;
+   14	    opacity: 0.6;
+   15	  }
+   16	  
+   17	  .separator.vertical {
+   18	    width: 1px;
+   19	    height: 100%;
+   20	    background: linear-gradient(
+   21	      to bottom, 
+   22	      transparent, 
+   23	      var(--border) 10%, 
+   24	      var(--border) 90%, 
+   25	      transparent
+   26	    );
+   27	  }
+   28	}

@@ -1,0 +1,56 @@
+
+@layer base {
+  .root {
+    all: unset;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 42px;
+    height: 24px;
+    background-color: var(--muted);
+   10	    border-radius: var(--radius-full);
+   11	    transition: background-color var(--animation-duration-normal) ease;
+   12	    cursor: pointer;
+   13	    -webkit-tap-highlight-color: transparent;
+   14	    flex-shrink: 0;
+   15	  }
+   16	
+   17	  .root:hover {
+   18	    background-color: var(--muted-foreground);
+   19	  }
+   20	
+   21	  .root:focus-visible {
+   22	    box-shadow: var(--shadow-focus);
+   23	  }
+   24	
+   25	  .root[data-state="checked"] {
+   26	    background-color: var(--primary);
+   27	  }
+   28	
+   29	  .root[data-state="checked"]:hover {
+   30	    background-color: color-mix(in srgb, var(--primary), black 10%);
+   31	  }
+   32	
+   33	  .thumb {
+   34	    display: block;
+   35	    width: 20px;
+   36	    height: 20px;
+   37	    background-color: var(--card);
+   38	    border-radius: var(--radius-full);
+   39	    box-shadow: 0 1px 2px color-mix(in srgb, black 10%, transparent);
+   40	    transition: transform var(--animation-duration-normal)
+   41	      cubic-bezier(0.16, 1, 0.3, 1);
+   42	    transform: translateX(2px);
+   43	    will-change: transform;
+   44	  }
+   45	
+   46	  .root[data-state="checked"] .thumb {
+   47	    transform: translateX(20px);
+   48	  }
+   49	
+   50	  .root[data-disabled] {
+   51	    opacity: 0.5;
+   52	    cursor: not-allowed;
+   53	  }
+   54	}
+   55	

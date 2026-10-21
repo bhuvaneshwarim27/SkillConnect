@@ -1,0 +1,153 @@
+
+@layer base {
+  .toggle {
+    user-select: none;
+  }
+
+  /* Focus styles */
+  .toggle:focus-visible {
+    box-shadow: var(--shadow-focus);
+  }
+   10	
+   11	  /* Size variants */
+   12	  .toggle-size-sm {
+   13	    height: 2rem;
+   14	    min-width: 2rem;
+   15	    padding: 0 var(--spacing-1);
+   16	    font-size: 0.875rem;
+   17	    border-radius: var(--radius-sm);
+   18	  }
+   19	
+   20	  .toggle-size-md {
+   21	    height: 2.5rem;
+   22	    min-width: 2.5rem;
+   23	    padding: 0 var(--spacing-2);
+   24	    font-size: 0.9375rem;
+   25	  }
+   26	
+   27	  .toggle-size-lg {
+   28	    height: 3rem;
+   29	    min-width: 3rem;
+   30	    padding: 0 var(--spacing-3);
+   31	    font-size: 1rem;
+   32	    border-radius: var(--radius-md);
+   33	  }
+   34	
+   35	  /* Icon sizing */
+   36	  .toggle-size-sm svg {
+   37	    width: 1rem;
+   38	    height: 1rem;
+   39	  }
+   40	
+   41	  .toggle-size-md svg {
+   42	    width: 1.25rem;
+   43	    height: 1.25rem;
+   44	  }
+   45	
+   46	  .toggle-size-lg svg {
+   47	    width: 1.5rem;
+   48	    height: 1.5rem;
+   49	  }
+   50	
+   51	  /* Variant styles */
+   52	  .toggle-variant-default {
+   53	    background-color: transparent;
+   54	    color: var(--foreground);
+   55	  }
+   56	
+   57	  .toggle-variant-default:hover {
+   58	    background-color: var(--muted);
+   59	  }
+   60	
+   61	    .toggle-variant-default:active {
+   62	    background-color: color-mix(in srgb, var(--muted) 80%, white);
+   63	  }
+   64	
+   65	  .toggle-variant-default[data-state="on"] {
+   66	    background-color: var(--primary);
+   67	    color: var(--primary-foreground);
+   68	  }
+   69	
+   70	    .toggle-variant-default[data-state="on"]:hover {
+   71	    background-color: color-mix(in srgb, var(--primary) 90%, black);
+   72	  }
+   73	
+   74	  .toggle-variant-default[data-state="on"]:active {
+   75	    background-color: color-mix(in srgb, var(--primary) 80%, black);
+   76	  }
+   77	
+   78	  .toggle-variant-outline {
+   79	    background-color: transparent;
+   80	    border-color: var(--border);
+   81	    color: var(--foreground);
+   82	  }
+   83	
+   84	  .toggle-variant-outline:hover {
+   85	    background-color: var(--muted);
+   86	  }
+   87	
+   88	    .toggle-variant-outline:active {
+   89	    background-color: color-mix(in srgb, var(--muted) 80%, white);
+   90	  }
+   91	
+   92	  .toggle-variant-outline[data-state="on"] {
+   93	    background-color: var(--muted);
+   94	    border-color: var(--primary);
+   95	    color: var(--foreground);
+   96	  }
+   97	
+   98	    .toggle-variant-outline[data-state="on"]:hover {
+   99	    background-color: color-mix(in srgb, var(--muted) 80%, white);
+  100	  }
+  101	
+  102	  .toggle-variant-outline[data-state="on"]:active {
+  103	    background-color: color-mix(in srgb, var(--muted) 75%, white);
+  104	  }
+  105	
+  106	  /* Disabled state */
+  107	  .toggle[disabled] {
+  108	    opacity: 0.6;
+  109	    cursor: not-allowed;
+  110	    pointer-events: none;
+  111	  }
+  112	
+  113	  /* Dark mode adjustments */
+  114	  :global(.dark) .toggle-variant-default {
+  115	    color: var(--foreground);
+  116	  }
+  117	
+  118	  :global(.dark) .toggle-variant-default:hover {
+  119	    background-color: var(--muted);
+  120	  }
+  121	
+  122	    :global(.dark) .toggle-variant-default:active {
+  123	    background-color: color-mix(in srgb, var(--muted) 80%, black);
+  124	  }
+  125	
+  126	  :global(.dark) .toggle-variant-outline {
+  127	    border-color: var(--border);
+  128	    color: var(--foreground);
+  129	  }
+  130	
+  131	  :global(.dark) .toggle-variant-outline:hover {
+  132	    background-color: var(--muted);
+  133	  }
+  134	
+  135	    :global(.dark) .toggle-variant-outline:active {
+  136	    background-color: color-mix(in srgb, var(--muted) 80%, black);
+  137	  }
+  138	
+  139	  :global(.dark) .toggle-variant-outline[data-state="on"] {
+  140	    background-color: var(--muted);
+  141	    border-color: var(--primary);
+  142	  }
+  143	
+  144	    :global(.dark) .toggle-variant-outline[data-state="on"]:hover {
+  145	    background-color: color-mix(in srgb, var(--muted) 80%, black);
+  146	  }
+  147	
+  148	  :global(.dark) .toggle-variant-outline[data-state="on"]:active {
+  149	    background-color: color-mix(in srgb, var(--muted) 70%, black);
+  150	  }
+  151	}
+  152	

@@ -1,0 +1,400 @@
+
+.region {
+  position: fixed;
+  top: calc(var(--safe-area-inset-top, env(safe-area-inset-top, 0px)) + 10px);
+  left: 0;
+  right: 0;
+  z-index: calc(var(--z-critical) + 1);
+  display: flex;
+  justify-content: center;
+  padding: 0 12px;
+   10	  pointer-events: none;
+   11	}
+   12	
+   13	/* One per notice. Carries the card's place in the stack; the transition is
+   14	   what makes the stack restack smoothly. Spans the region minus its side
+   15	   padding so long notices still get the full width. */
+   16	.slot {
+   17	  position: absolute;
+   18	  top: 0;
+   19	  left: 12px;
+   20	  right: 12px;
+   21	  display: flex;
+   22	  justify-content: center;
+   23	  pointer-events: none;
+   24	  transform-origin: top center;
+   25	  transition:
+   26	    transform 440ms cubic-bezier(0.22, 1, 0.36, 1),
+   27	    opacity 260ms ease;
+   28	}
+   29	
+   30	/* Inverse of the page: the theme's foreground as the surface. */
+   31	.toast {
+   32	  position: relative;
+   33	  /* Radix modals set pointer-events:none on <body>; a notice must stay
+   34	     clickable over an open dialog. */
+   35	  pointer-events: auto;
+   36	  display: inline-flex;
+   37	  align-items: center;
+   38	  gap: 8px;
+   39	  max-width: min(560px, 100%);
+   40	  min-height: 34px;
+   41	  padding: 4px 4px 4px 8px;
+   42	  background: var(--foreground);
+   43	  color: var(--background);
+   44	  border-radius: var(--radius-full);
+   45	  font-family: var(--font-family-base);
+   46	  font-size: 13px;
+   47	  font-weight: 500;
+   48	  line-height: 1.3;
+   49	  box-shadow: var(--shadow-lg);
+   50	  cursor: default;
+   51	  user-select: none;
+   52	  -webkit-user-select: none;
+   53	  /* The notice owns vertical drags (swipe up to dismiss). */
+   54	  touch-action: none;
+   55	  -webkit-tap-highlight-color: transparent;
+   56	  animation: toastIn 420ms cubic-bezier(0.2, 1.4, 0.4, 1);
+   57	  transform-origin: top center;
+   58	}
+   59	
+   60	.noAction {
+   61	  padding-right: 14px;
+   62	}
+   63	
+   64	.noIcon {
+   65	  padding-left: 14px;
+   66	}
+   67	
+   68	.twoLine {
+   69	  border-radius: 20px;
+   70	  padding-top: 6px;
+   71	  padding-bottom: 6px;
+   72	}
+   73	
+   74	.leaving {
+   75	  pointer-events: none;
+   76	  animation: toastOut 200ms ease-in forwards;
+   77	}
+   78	
+   79	/* ---------- Swipe to dismiss ----------
+   80	   Once a finger has the card, its entrance animations are retired:
+   81	   animations outrank inline styles, so a still-running entrance would fight
+   82	   the finger. `:not(.leaving)` so a timer that expires after a drag-and-return
+   83	   still gets its normal exit. */
+   84	.handled:not(.leaving),
+   85	.handled:not(.leaving) > * {
+   86	  animation: none !important;
+   87	}
+   88	
+   89	.handled > :not(.fillet) {
+   90	  opacity: var(--toast-content-opacity, 1);
+   91	}
+   92	
+   93	/* Swiped away: the finger already played the exit, so it holds where it ended
+   94	   until it is removed. */
+   95	.swiped,
+   96	.swiped > * {
+   97	  animation: none !important;
+   98	}
+   99	
+  100	/* ---------- The stack ----------
+  101	   Folded cards behind the front one show only their edge. */
+  102	.behind {
+  103	  pointer-events: none;
+  104	}
+  105	
+  106	.toast.behind > :not(.fillet) {
+  107	  opacity: 0 !important;
+  108	  transition: opacity 160ms ease;
+  109	}
+  110	
+  111	.toast > :not(.fillet) {
+  112	  transition: opacity 220ms ease 60ms;
+  113	}
+  114	
+  115	/* Fanned out, the gaps between cards still count as "on the stack", so a
+  116	   mouse crossing from one card to the next doesn't fold it up. */
+  117	.open .toast::after {
+  118	  content: "";
+  119	  position: absolute;
+  120	  left: 0;
+  121	  right: 0;
+  122	  top: 100%;
+  123	  height: 8px;
+  124	}
+  125	
+  126	.icon {
+  127	  width: 20px;
+  128	  height: 20px;
+  129	  flex-shrink: 0;
+  130	  border-radius: 50%;
+  131	  display: grid;
+  132	  place-items: center;
+  133	  background: color-mix(in srgb, var(--background) 20%, transparent);
+  134	  color: var(--background);
+  135	}
+  136	
+  137	.tone_success .icon {
+  138	  background: var(--success);
+  139	  color: var(--success-foreground);
+  140	}
+  141	.tone_error .icon {
+  142	  background: var(--error);
+  143	  color: var(--error-foreground);
+  144	}
+  145	.tone_warning .icon {
+  146	  background: var(--warning);
+  147	  color: var(--warning-foreground);
+  148	}
+  149	.tone_info .icon {
+  150	  background: var(--info);
+  151	  color: var(--info-foreground);
+  152	}
+  153	
+  154	.text {
+  155	  display: flex;
+  156	  flex-direction: column;
+  157	  min-width: 0;
+  158	  animation: textIn 280ms 70ms both;
+  159	}
+  160	
+  161	.title,
+  162	.description {
+  163	  white-space: nowrap;
+  164	  overflow: hidden;
+  165	  text-overflow: ellipsis;
+  166	}
+  167	
+  168	.twoLine .title {
+  169	  font-weight: 600;
+  170	}
+  171	
+  172	.description {
+  173	  font-size: 12px;
+  174	  font-weight: 400;
+  175	  color: color-mix(in srgb, var(--background) 65%, transparent);
+  176	}
+  177	
+  178	.divider {
+  179	  width: 1px;
+  180	  height: 16px;
+  181	  flex-shrink: 0;
+  182	  background: color-mix(in srgb, var(--background) 22%, transparent);
+  183	}
+  184	
+  185	.action {
+  186	  flex-shrink: 0;
+  187	  height: 26px;
+  188	  padding: 0 12px;
+  189	  border: none;
+  190	  border-radius: var(--radius-full);
+  191	  background: var(--primary);
+  192	  color: var(--primary-foreground);
+  193	  font-family: inherit;
+  194	  font-size: 12.5px;
+  195	  font-weight: 700;
+  196	  cursor: pointer;
+  197	  transition:
+  198	    filter var(--animation-duration-fast) ease,
+  199	    transform var(--animation-duration-fast) ease;
+  200	}
+  201	
+  202	.action:hover {
+  203	  filter: brightness(1.08);
+  204	}
+  205	
+  206	.action:active {
+  207	  transform: scale(0.96);
+  208	}
+  209	
+  210	.action:focus-visible {
+  211	  outline: 2px solid var(--background);
+  212	  outline-offset: 2px;
+  213	}
+  214	
+  215	.spin {
+  216	  animation: spin 900ms linear infinite;
+  217	}
+  218	
+  219	/* ---------- Dynamic Island mode (native iOS, portrait) ----------
+  220	   Geometry, relative to the hardware pill (top T = --toast-island-top,
+  221	   126×37): the body's top edge sits at T+34, just above the pill's bottom, so
+  222	   the two blacks overlap; the neck (108 wide) rises 30px from the body into
+  223	   the pill; two 12px fillets round the inside corners where body meets neck.
+  224	   All pure black, so the boundary between hardware and pixels disappears. */
+  225	.fillet {
+  226	  display: none;
+  227	}
+  228	
+  229	.dynamic {
+  230	  top: calc(var(--toast-island-top, 11px) + 34px);
+  231	}
+  232	
+  233	/* Laid out where it is rendered rather than pinned to the top of the screen.
+  234	   In Dynamic Island mode the gap above stays, as padding, so the neck still
+  235	   has room to reach up into the pill. */
+  236	.inline {
+  237	  position: relative;
+  238	  top: auto;
+  239	  z-index: auto;
+  240	}
+  241	
+  242	.inline.dynamic {
+  243	  top: auto;
+  244	  padding-top: calc(var(--toast-island-top, 11px) + 34px);
+  245	}
+  246	
+  247	.inline.dynamic .slot {
+  248	  top: calc(var(--toast-island-top, 11px) + 34px);
+  249	}
+  250	
+  251	.dynamic .toast {
+  252	  position: relative;
+  253	  min-width: 148px;
+  254	  min-height: 36px;
+  255	  background: #000;
+  256	  color: hsl(0, 0%, 96%);
+  257	  box-shadow: none;
+  258	  border-radius: 22px;
+  259	  animation: dynamicIn 480ms cubic-bezier(0.25, 1.3, 0.4, 1);
+  260	}
+  261	
+  262	.dynamic .icon {
+  263	  background: hsla(0, 0%, 100%, 0.18);
+  264	  color: hsl(0, 0%, 96%);
+  265	}
+  266	
+  267	.dynamic .description {
+  268	  color: hsla(0, 0%, 96%, 0.62);
+  269	}
+  270	
+  271	.dynamic .divider {
+  272	  background: hsla(0, 0%, 100%, 0.18);
+  273	}
+  274	
+  275	/* The neck and fillets join only the front card to the pill; cards behind or
+  276	   below it are plain black capsules. */
+  277	.dynamic .front::before {
+  278	  content: "";
+  279	  position: absolute;
+  280	  left: 50%;
+  281	  top: -30px;
+  282	  width: 108px;
+  283	  height: 31px;
+  284	  margin-left: -54px;
+  285	  background: #000;
+  286	  border-radius: 16px 16px 0 0;
+  287	  pointer-events: none;
+  288	}
+  289	
+  290	.dynamic .fillet {
+  291	  position: absolute;
+  292	  top: -12px;
+  293	  width: 12px;
+  294	  height: 12px;
+  295	  pointer-events: none;
+  296	}
+  297	
+  298	.dynamic .front .fillet {
+  299	  display: block;
+  300	}
+  301	
+  302	.dynamic .filletLeft {
+  303	  left: calc(50% - 66px);
+  304	  background: radial-gradient(circle at 0 0, transparent 11.5px, #000 12px);
+  305	}
+  306	
+  307	.dynamic .filletRight {
+  308	  left: calc(50% + 54px);
+  309	  background: radial-gradient(circle at 100% 0, transparent 11.5px, #000 12px);
+  310	}
+  311	
+  312	/* Content fades in once the shape has grown out of the pill, and out before
+  313	   it shrinks back in. */
+  314	.dynamic .toast > :not(.fillet) {
+  315	  animation: textIn 240ms 150ms both;
+  316	}
+  317	
+  318	.dynamic .leaving {
+  319	  animation: dynamicOut 260ms cubic-bezier(0.5, 0, 0.75, 0) forwards;
+  320	}
+  321	
+  322	.dynamic .leaving > :not(.fillet) {
+  323	  animation: contentOut 100ms ease-in forwards;
+  324	}
+  325	
+  326	@keyframes dynamicIn {
+  327	  from {
+  328	    transform: translateY(-34px) scale(0.33, 0.4);
+  329	  }
+  330	  to {
+  331	    transform: none;
+  332	  }
+  333	}
+  334	
+  335	@keyframes dynamicOut {
+  336	  to {
+  337	    transform: translateY(-34px) scale(0.33, 0.4);
+  338	  }
+  339	}
+  340	
+  341	@keyframes contentOut {
+  342	  to {
+  343	    opacity: 0;
+  344	  }
+  345	}
+  346	
+  347	@keyframes toastIn {
+  348	  from {
+  349	    transform: translateY(-8px) scale(0.6);
+  350	    opacity: 0;
+  351	    filter: blur(4px);
+  352	  }
+  353	  to {
+  354	    transform: none;
+  355	    opacity: 1;
+  356	    filter: none;
+  357	  }
+  358	}
+  359	
+  360	@keyframes toastOut {
+  361	  to {
+  362	    transform: translateY(-6px) scale(0.85);
+  363	    opacity: 0;
+  364	  }
+  365	}
+  366	
+  367	@keyframes textIn {
+  368	  from {
+  369	    opacity: 0;
+  370	    transform: translateY(2px);
+  371	  }
+  372	  to {
+  373	    opacity: 1;
+  374	    transform: none;
+  375	  }
+  376	}
+  377	
+  378	@keyframes spin {
+  379	  to {
+  380	    transform: rotate(360deg);
+  381	  }
+  382	}
+  383	
+  384	@media (prefers-reduced-motion: reduce) {
+  385	  .slot {
+  386	    transition-duration: 1ms;
+  387	  }
+  388	
+  389	  .toast,
+  390	  .leaving,
+  391	  .text,
+  392	  .dynamic .toast,
+  393	  .dynamic .leaving,
+  394	  .dynamic .toast > :not(.fillet) {
+  395	    animation-duration: 1ms;
+  396	    animation-delay: 0ms;
+  397	  }
+  398	}
+  399	

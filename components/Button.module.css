@@ -1,0 +1,251 @@
+
+@layer base {
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-2);
+    font-family: var(--font-family-base);
+    font-weight: 500;
+    border-radius: var(--radius);
+   10	    white-space: nowrap;
+   11	    text-decoration: none;
+   12	    cursor: pointer;
+   13	    transition:
+   14	      background-color var(--animation-duration-fast) ease,
+   15	      border-color var(--animation-duration-fast) ease,
+   16	      color var(--animation-duration-fast) ease,
+   17	      box-shadow var(--animation-duration-fast) ease;
+   18	    outline: none;
+   19	    border: 1px solid transparent;
+   20	    position: relative;
+   21	  }
+   22	
+   23	  /* Focus styles - high contrast for accessibility */
+   24	  .button:focus-visible {
+   25	    box-shadow:
+   26	      0 0 0 2px var(--background),
+   27	      0 0 0 4px var(--primary);
+   28	    outline: none;
+   29	  }
+   30	
+   31	  /* Size variants - ensuring proper touch targets */
+   32	  .sm {
+   33	    height: 1.5rem;
+   34	    padding: 0 var(--spacing-2);
+   35	    font-size: 0.875rem;
+   36	  }
+   37	
+   38	  .md {
+   39	    height: 2.5rem;
+   40	    padding: 0 var(--spacing-3);
+   41	    font-size: 0.9375rem;
+   42	  }
+   43	
+   44	  .lg {
+   45	    height: 3rem;
+   46	    padding: 0 var(--spacing-4);
+   47	    font-size: 1rem;
+   48	    border-radius: var(--radius-md);
+   49	  }
+   50	
+   51	  /* Icon button sizes */
+   52	  .icon,
+   53	  .icon-md {
+   54	    width: 2rem;
+   55	    height: 2rem;
+   56	    padding: 0;
+   57	  }
+   58	
+   59	  .icon-sm {
+   60	    width: 1.5rem;
+   61	    height: 1.5rem;
+   62	    padding: 0;
+   63	  }
+   64	
+   65	  .icon-lg {
+   66	    width: 2.5rem;
+   67	    height: 2.5rem;
+   68	    padding: 0;
+   69	    border-radius: var(--radius-md);
+   70	  }
+   71	
+   72	  /* Icon sizing */
+   73	  .button svg {
+   74	    flex-shrink: 0;
+   75	  }
+   76	
+   77	  .sm svg,
+   78	  .icon-sm svg {
+   79	    width: 1rem;
+   80	    height: 1rem;
+   81	  }
+   82	
+   83	  .md svg,
+   84	  .icon svg,
+   85	  .icon-md svg {
+   86	    width: 1.25rem;
+   87	    height: 1.25rem;
+   88	  }
+   89	
+   90	  .lg svg,
+   91	  .icon-lg svg {
+   92	    width: 1.5rem;
+   93	    height: 1.5rem;
+   94	  }
+   95	
+   96	  /* Primary - White text on solid brand color (high contrast) */
+   97	  .primary {
+   98	    background-color: var(--primary);
+   99	    color: var(--primary-foreground);
+  100	    border-color: var(--primary);
+  101	    --spinner-color: var(--primary-foreground);
+  102	  }
+  103	
+  104	  .primary:hover {
+  105	    background-color: color-mix(in oklch, var(--primary) 90%, var(--primary-foreground));
+  106	    border-color: color-mix(in oklch, var(--primary) 90%, var(--primary-foreground));
+  107	  }
+  108	
+  109	  .primary:active {
+  110	    background-color: color-mix(in oklch, var(--primary) 85%, var(--primary-foreground));
+  111	    border-color: color-mix(in oklch, var(--primary) 85%, var(--primary-foreground));
+  112	  }
+  113	
+  114	  .secondary {
+  115	    background-color: var(--secondary);
+  116	    color: var(--secondary-foreground);
+  117	    border-color: var(--secondary);
+  118	    --spinner-color: var(--secondary-foreground);
+  119	  }
+  120	
+  121	  .secondary:hover {
+  122	    background-color: color-mix(in oklch, var(--secondary) 90%, var(--secondary-foreground));
+  123	    border-color: color-mix(in oklch, var(--secondary) 90%, var(--secondary-foreground));
+  124	  }
+  125	
+  126	  .secondary:active {
+  127	    background-color: color-mix(in oklch, var(--secondary) 85%, var(--secondary-foreground));
+  128	    border-color: color-mix(in oklch, var(--secondary) 85%, var(--secondary-foreground));
+  129	  }
+  130	
+  131	  /* Destructive - White text on solid red (high contrast) */
+  132	  .destructive {
+  133	    background-color: var(--error);
+  134	    color: var(--error-foreground);
+  135	    border-color: var(--error);
+  136	    --spinner-color: var(--error-foreground);
+  137	  }
+  138	
+  139	  .destructive:hover {
+  140	    background-color: color-mix(in oklch, var(--error) 90%, var(--error-foreground));
+  141	    border-color: color-mix(in oklch, var(--error) 90%, var(--error-foreground));
+  142	  }
+  143	
+  144	  .destructive:active {
+  145	    background-color: color-mix(in oklch, var(--error) 85%, var(--error-foreground));
+  146	    border-color: color-mix(in oklch, var(--error) 85%, var(--error-foreground));
+  147	  }
+  148	
+  149	  .destructive:focus-visible {
+  150	    box-shadow:
+  151	      0 0 0 2px var(--background),
+  152	      0 0 0 4px var(--error);
+  153	  }
+  154	
+  155	  /* Outline - Brand color text with brand color border, no background */
+  156	  .outline {
+  157	    background-color: transparent;
+  158	    border-color: var(--primary);
+  159	    color: var(--primary);
+  160	    --spinner-color: var(--primary);
+  161	  }
+  162	
+  163	  .outline:hover {
+  164	    background-color: color-mix(in oklch, var(--primary) 12%, var(--background));
+  165	    border-color: color-mix(in oklch, var(--primary) 90%, var(--primary-foreground));
+  166	    color: color-mix(in oklch, var(--primary) 90%, var(--primary-foreground));
+  167	  }
+  168	
+  169	  .outline:active {
+  170	    background-color: color-mix(in oklch, var(--primary) 15%, var(--background));
+  171	    border-color: color-mix(in oklch, var(--primary) 85%, var(--primary-foreground));
+  172	    color: color-mix(in oklch, var(--primary) 85%, var(--primary-foreground));
+  173	  }
+  174	
+  175	  /* Ghost - Brand color text only, minimal styling until interaction */
+  176	  .ghost {
+  177	    background-color: transparent;
+  178	    border-color: transparent;
+  179	    --spinner-color: var(--primary);
+  180	  }
+  181	
+  182	  .ghost:hover {
+  183	    background-color: color-mix(in oklch, var(--primary) 12%, var(--background));
+  184	    color: color-mix(in oklch, var(--primary) 90%, var(--primary-foreground));
+  185	  }
+  186	
+  187	  .ghost:active {
+  188	    background-color: color-mix(in oklch, var(--primary) 15%, var(--background));
+  189	    color: color-mix(in oklch, var(--primary) 85%, var(--primary-foreground));
+  190	  }
+  191	
+  192	  /* Link - Brand color text, underline on hover */
+  193	  .link {
+  194	    background-color: transparent;
+  195	    color: var(--primary);
+  196	    height: auto;
+  197	    padding: 0;
+  198	    text-decoration: none;
+  199	    border: none;
+  200	    border-radius: 0;
+  201	    min-height: 2.75rem; /* Ensure touch target height */
+  202	    display: inline-flex;
+  203	    align-items: center;
+  204	    --spinner-color: var(--primary);
+  205	  }
+  206	
+  207	  .link:hover {
+  208	    text-decoration: underline;
+  209	    color: color-mix(in oklch, var(--primary) 90%, var(--primary-foreground));
+  210	    background-color: transparent;
+  211	  }
+  212	
+  213	  .link:active {
+  214	    color: color-mix(in oklch, var(--primary) 85%, var(--primary-foreground));
+  215	    background-color: transparent;
+  216	  }
+  217	
+  218	  .link:focus-visible {
+  219	    box-shadow: 0 0 0 2px var(--primary);
+  220	    outline: none;
+  221	    border-radius: 0.25rem;
+  222	  }
+  223	
+  224	  /* Disabled state */
+  225	  .disabled {
+  226	    opacity: 0.5;
+  227	    cursor: not-allowed;
+  228	    pointer-events: none;
+  229	  }
+  230	
+  231	  /* Dark mode - colors automatically adjust due to CSS variable system */
+  232	    :global(.dark) .primary:focus-visible,
+  233	  :global(.dark) .outline:focus-visible,
+  234	  :global(.dark) .ghost:focus-visible {
+  235	    box-shadow:
+  236	      0 0 0 2px var(--background),
+  237	      0 0 0 4px var(--primary);
+  238	  }
+  239	
+  240	    :global(.dark) .destructive:focus-visible {
+  241	    box-shadow:
+  242	      0 0 0 2px var(--background),
+  243	      0 0 0 4px var(--error);
+  244	  }
+  245	
+  246	    :global(.dark) .link:focus-visible {
+  247	    box-shadow: 0 0 0 2px var(--primary);
+  248	  }
+  249	}
+  250	

@@ -1,0 +1,127 @@
+
+@layer base {
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background-color: color-mix(in srgb, black 50%, transparent);
+    z-index: var(--z-overlay) !important;
+    animation: overlayShow var(--animation-duration-normal)
+      cubic-bezier(0.16, 1, 0.3, 1);
+  }
+   10	
+   11	  .content {
+   12	    /* This must be fixed, no relative or other positining, otherwise it won't show up properly. */
+   13	    position: fixed !important;
+   14	    top: 50%;
+   15	    left: 50%;
+   16	    transform: translate(-50%, -50%);
+   17	    max-width: 90vw;
+   18	    max-height: 85vh;
+   19	    width: 32rem;
+   20	    background-color: var(--popup);
+   21	    color: var(--popup-foreground);
+   22	    border-radius: var(--radius-md);
+   23	    box-shadow: var(--shadow-lg);
+   24	    z-index: var(--z-overlay) !important;
+   25	    overflow: auto;
+   26	    padding: var(--spacing-6);
+   27	    animation: contentShow var(--animation-duration-normal)
+   28	      cubic-bezier(0.16, 1, 0.3, 1);
+   29	  }
+   30	
+   31	  .close {
+   32	    position: absolute;
+   33	    top: var(--spacing-4);
+   34	    right: var(--spacing-4);
+   35	    display: flex;
+   36	    align-items: center;
+   37	    justify-content: center;
+   38	    width: 2rem;
+   39	    height: 2rem;
+   40	    border-radius: var(--radius-full);
+   41	    background-color: var(--muted);
+   42	    color: var(--muted-foreground);
+   43	    border: none;
+   44	    cursor: pointer;
+   45	    transition:
+   46	      background-color var(--animation-duration-fast) ease,
+   47	      color var(--animation-duration-fast) ease,
+   48	      transform var(--animation-duration-fast) ease;
+   49	  }
+   50	
+   51	  .close:hover {
+   52	    background-color: var(--muted-foreground);
+   53	    color: var(--muted);
+   54	    transform: scale(1.05);
+   55	  }
+   56	
+   57	  .close:focus-visible {
+   58	    outline: none;
+   59	    box-shadow: var(--shadow-focus);
+   60	  }
+   61	
+   62	  .closeIcon {
+   63	    width: 1rem;
+   64	    height: 1rem;
+   65	  }
+   66	
+   67	  .header {
+   68	    margin-bottom: var(--spacing-4);
+   69	  }
+   70	
+   71	  .footer {
+   72	    display: flex;
+   73	    justify-content: flex-end;
+   74	    gap: var(--spacing-2);
+   75	    margin-top: var(--spacing-6);
+   76	  }
+   77	
+   78	  .title {
+   79	    font-family: var(--font-family-heading);
+   80	    font-size: 1.25rem;
+   81	    font-weight: 600;
+   82	    color: var(--popup-foreground);
+   83	    line-height: 1.4;
+   84	    margin-bottom: var(--spacing-2);
+   85	  }
+   86	
+   87	  .description {
+   88	    font-size: 0.875rem;
+   89	    color: var(--muted-foreground);
+   90	    line-height: 1.5;
+   91	    margin-bottom: var(--spacing-4);
+   92	  }
+   93	
+   94	  .screenReaderText {
+   95	    position: absolute;
+   96	    width: 1px;
+   97	    height: 1px;
+   98	    padding: 0;
+   99	    margin: -1px;
+  100	    overflow: hidden;
+  101	    clip: rect(0, 0, 0, 0);
+  102	    white-space: nowrap;
+  103	    border-width: 0;
+  104	  }
+  105	
+  106	  @keyframes overlayShow {
+  107	    from {
+  108	      opacity: 0;
+  109	    }
+  110	    to {
+  111	      opacity: 1;
+  112	    }
+  113	  }
+  114	
+  115	  @keyframes contentShow {
+  116	    from {
+  117	      opacity: 0;
+  118	      scale: 0.95;
+  119	    }
+  120	    to {
+  121	      opacity: 1;
+  122	      scale: 1;
+  123	    }
+  124	  }
+  125	}
+  126	

@@ -1,0 +1,192 @@
+
+@layer base {
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-overlay);
+    background-color: color-mix(in srgb, black 50%, transparent);
+    backdrop-filter: blur(2px);
+    animation: overlayShow var(--animation-duration-normal)
+      cubic-bezier(0.16, 1, 0.3, 1);
+   10	  }
+   11	
+   12	  .content {
+   13	    position: fixed;
+   14	    z-index: var(--z-overlay);
+   15	    display: flex;
+   16	    flex-direction: column;
+   17	    background-color: var(--popup);
+   18	    color: var(--popup-foreground);
+   19	    box-shadow: var(--shadow-lg);
+   20	    transition: transform var(--animation-duration-normal)
+   21	      cubic-bezier(0.16, 1, 0.3, 1);
+   22	    overflow-y: auto;
+   23	  }
+   24	
+   25	  .top {
+   26	    top: 0;
+   27	    left: 0;
+   28	    right: 0;
+   29	    height: 80vh;
+   30	    max-height: 500px;
+   31	    border-bottom-left-radius: var(--radius-md);
+   32	    border-bottom-right-radius: var(--radius-md);
+   33	    animation: slideDownAndFade var(--animation-duration-normal)
+   34	      cubic-bezier(0.16, 1, 0.3, 1);
+   35	  }
+   36	
+   37	  .bottom {
+   38	    bottom: 0;
+   39	    left: 0;
+   40	    right: 0;
+   41	    height: 80vh;
+   42	    max-height: 500px;
+   43	    border-top-left-radius: var(--radius-md);
+   44	    border-top-right-radius: var(--radius-md);
+   45	    animation: slideUpAndFade var(--animation-duration-normal)
+   46	      cubic-bezier(0.16, 1, 0.3, 1);
+   47	  }
+   48	
+   49	  .left {
+   50	    top: 0;
+   51	    left: 0;
+   52	    bottom: 0;
+   53	    width: 100%;
+   54	    max-width: 400px;
+   55	    border-top-right-radius: var(--radius-md);
+   56	    border-bottom-right-radius: var(--radius-md);
+   57	    animation: slideRightAndFade var(--animation-duration-normal)
+   58	      cubic-bezier(0.16, 1, 0.3, 1);
+   59	  }
+   60	
+   61	  .right {
+   62	    top: 0;
+   63	    right: 0;
+   64	    bottom: 0;
+   65	    width: 100%;
+   66	    max-width: 400px;
+   67	    border-top-left-radius: var(--radius-md);
+   68	    border-bottom-left-radius: var(--radius-md);
+   69	    animation: slideLeftAndFade var(--animation-duration-normal)
+   70	      cubic-bezier(0.16, 1, 0.3, 1);
+   71	  }
+   72	
+   73	  .close {
+   74	    position: absolute;
+   75	    top: var(--spacing-4);
+   76	    right: var(--spacing-4);
+   77	    display: flex;
+   78	    align-items: center;
+   79	    justify-content: center;
+   80	    width: 2rem;
+   81	    height: 2rem;
+   82	    border-radius: var(--radius-full);
+   83	    background-color: var(--muted);
+   84	    color: var(--muted-foreground);
+   85	    border: none;
+   86	    cursor: pointer;
+   87	    transition:
+   88	      background-color var(--animation-duration-fast) ease,
+   89	      transform var(--animation-duration-fast) ease;
+   90	  }
+   91	
+   92	  .close:hover {
+   93	    background-color: var(--muted-foreground);
+   94	    color: var(--muted);
+   95	    transform: scale(1.05);
+   96	  }
+   97	
+   98	  .close:focus-visible {
+   99	    outline: none;
+  100	    box-shadow: var(--shadow-focus);
+  101	  }
+  102	
+  103	  .closeIcon {
+  104	    width: 1rem;
+  105	    height: 1rem;
+  106	  }
+  107	
+  108	  .header {
+  109	    display: flex;
+  110	    flex-direction: column;
+  111	    gap: var(--spacing-2);
+  112	    padding: var(--spacing-6);
+  113	    padding-right: var(--spacing-12);
+  114	    border-bottom: 1px solid var(--border);
+  115	  }
+  116	
+  117	  .footer {
+  118	    display: flex;
+  119	    flex-direction: column;
+  120	    gap: var(--spacing-3);
+  121	    margin-top: auto;
+  122	    padding: var(--spacing-6);
+  123	    border-top: 1px solid var(--border);
+  124	  }
+  125	
+  126	  .title {
+  127	    font-family: var(--font-family-heading);
+  128	    font-size: 1.25rem;
+  129	    font-weight: 600;
+  130	    color: var(--popup-foreground);
+  131	  }
+  132	
+  133	  .description {
+  134	    font-size: 0.875rem;
+  135	    color: var(--muted-foreground);
+  136	    line-height: 1.5;
+  137	  }
+  138	
+  139	  @keyframes overlayShow {
+  140	    from {
+  141	      opacity: 0;
+  142	    }
+  143	    to {
+  144	      opacity: 1;
+  145	    }
+  146	  }
+  147	
+  148	  @keyframes slideUpAndFade {
+  149	    from {
+  150	      transform: translateY(100%);
+  151	    }
+  152	    to {
+  153	      transform: translateY(0);
+  154	    }
+  155	  }
+  156	
+  157	  @keyframes slideDownAndFade {
+  158	    from {
+  159	      transform: translateY(-100%);
+  160	    }
+  161	    to {
+  162	      transform: translateY(0);
+  163	    }
+  164	  }
+  165	
+  166	  @keyframes slideLeftAndFade {
+  167	    from {
+  168	      transform: translateX(100%);
+  169	    }
+  170	    to {
+  171	      transform: translateX(0);
+  172	    }
+  173	  }
+  174	
+  175	  @keyframes slideRightAndFade {
+  176	    from {
+  177	      transform: translateX(-100%);
+  178	    }
+  179	    to {
+  180	      transform: translateX(0);
+  181	    }
+  182	  }
+  183	
+  184	  @media (max-width: 640px) {
+  185	    .left,
+  186	    .right {
+  187	      max-width: 100%;
+  188	    }
+  189	  }
+  190	}
+  191	

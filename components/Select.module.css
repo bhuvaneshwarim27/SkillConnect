@@ -1,0 +1,149 @@
+
+@layer base {
+  .selectTrigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 2.5rem;
+    padding: var(--spacing-2) var(--spacing-3);
+    cursor: pointer;
+    overflow: hidden;
+   10	
+   11	    & > *:not(svg) {
+   12	      white-space: nowrap;
+   13	      overflow: hidden;
+   14	      text-overflow: ellipsis;
+   15	    }
+   16	  }
+   17	
+   18	  .selectTrigger[data-placeholder] {
+   19	    color: var(--muted-foreground);
+   20	  }
+   21	
+   22	  .selectIcon {
+   23	    height: 1rem;
+   24	    width: 1rem;
+   25	    color: var(--muted-foreground);
+   26	    margin-left: var(--spacing-2);
+   27	    transition: transform var(--animation-duration-normal) ease;
+   28	  }
+   29	
+   30	  .selectTrigger[data-state="open"] .selectIcon {
+   31	    transform: rotate(180deg);
+   32	  }
+   33	
+   34	  .selectContent {
+   35	    z-index: var(--z-overlay);
+   36	    max-height: var(--radix-select-content-available-height);
+   37	    min-width: 12rem;
+   38	    max-width: 24rem;
+   39	    overflow: hidden;
+   40	    background-color: var(--popup);
+   41	    color: var(--popup-foreground);
+   42	    border-radius: var(--radius);
+   43	    border: 1px solid var(--border);
+   44	    box-shadow: var(--shadow-md);
+   45	    animation: scaleIn var(--animation-duration-normal) ease;
+   46	  }
+   47	
+   48	  @keyframes scaleIn {
+   49	    from {
+   50	      opacity: 0;
+   51	      transform: scale(0.97);
+   52	    }
+   53	    to {
+   54	      opacity: 1;
+   55	      transform: scale(1);
+   56	    }
+   57	  }
+   58	
+   59	  .selectViewport {
+   60	    padding: var(--spacing-2);
+   61	  }
+   62	
+   63	  .scrollButton {
+   64	    display: flex;
+   65	    align-items: center;
+   66	    justify-content: center;
+   67	    height: var(--spacing-6);
+   68	    background-color: var(--popup);
+   69	    color: var(--popup-foreground);
+   70	    cursor: pointer;
+   71	    border: none;
+   72	    outline: none;
+   73	  }
+   74	
+   75	  .scrollButton:hover .scrollIcon {
+   76	    color: var(--primary);
+   77	  }
+   78	
+   79	  .scrollIcon {
+   80	    height: 1rem;
+   81	    width: 1rem;
+   82	    color: var(--muted-foreground);
+   83	    transition: color var(--animation-duration-fast) ease;
+   84	  }
+   85	
+   86	  .selectLabel {
+   87	    padding: var(--spacing-2) var(--spacing-4);
+   88	    font-size: 0.875rem;
+   89	    font-weight: 500;
+   90	    color: var(--muted-foreground);
+   91	  }
+   92	
+   93	  .selectItem {
+   94	    position: relative;
+   95	    display: flex;
+   96	    align-items: center;
+   97	    padding: var(--spacing-2) var(--spacing-4);
+   98	    padding-right: var(--spacing-8);
+   99	    font-size: 0.9375rem;
+  100	    line-height: 1.5;
+  101	    border-radius: var(--radius-sm);
+  102	    color: var(--popup-foreground);
+  103	    user-select: none;
+  104	    outline: none;
+  105	    cursor: pointer;
+  106	    transition:
+  107	      background-color var(--animation-duration-fast) ease,
+  108	      color var(--animation-duration-fast) ease;
+  109	  }
+  110	
+  111	  .selectItem:hover {
+  112	    background-color: var(--primary);
+  113	    color: var(--primary-foreground);
+  114	  }
+  115	
+  116	  .selectItem:focus-visible {
+  117	    background-color: var(--primary);
+  118	    color: var(--primary-foreground);
+  119	  }
+  120	
+  121	  .selectItem[data-disabled] {
+  122	    color: var(--muted-foreground);
+  123	    opacity: 0.5;
+  124	    pointer-events: none;
+  125	  }
+  126	
+  127	  .selectItemIndicator {
+  128	    position: absolute;
+  129	    right: var(--spacing-3);
+  130	    display: flex;
+  131	    align-items: center;
+  132	    justify-content: center;
+  133	  }
+  134	
+  135	  .checkIcon {
+  136	    height: 1rem;
+  137	    width: 1rem;
+  138	    color: currentColor;
+  139	  }
+  140	
+  141	  .selectSeparator {
+  142	    height: 1px;
+  143	    background-color: var(--border);
+  144	    margin: var(--spacing-2) var(--spacing-1);
+  145	  }
+  146	
+  147	}
+  148	

@@ -1,0 +1,45 @@
+
+@layer base {
+  .toggleGroup {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-1);
+    align-items: center;
+    position: relative;
+    width: fit-content;
+  }
+   10	  
+   11	  /* Horizontal orientation (default) */
+   12	  .toggleGroup[data-orientation="horizontal"] {
+   13	    flex-direction: row;
+   14	  }
+   15	  
+   16	  /* Vertical orientation */
+   17	  .toggleGroup[data-orientation="vertical"] {
+   18	    flex-direction: column;
+   19	    align-items: stretch;
+   20	  }
+   21	  
+   22	  /* When the group has a single value selection mode */
+   23	  .toggleGroup[data-type="single"] {
+   24	    position: relative;
+   25	  }
+   26	  
+   27	  /* When the group has multiple selection mode */
+   28	  .toggleGroup[data-type="multiple"] {
+   29	    position: relative;
+   30	  }
+   31	  
+   32	  /* Adjust spacing for different sizes */
+   33	  .toggleGroup:has(.toggle-size-sm) {
+   34	    gap: var(--spacing-1);
+   35	  }
+   36	  
+   37	  .toggleGroup:has(.toggle-size-md) {
+   38	    gap: var(--spacing-2);
+   39	  }
+   40	  
+   41	  .toggleGroup:has(.toggle-size-lg) {
+   42	    gap: var(--spacing-3);
+   43	  }
+   44	}

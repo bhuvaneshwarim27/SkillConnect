@@ -1,0 +1,229 @@
+
+@layer base {
+  .container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    padding-top: var(--spacing-4);
+    font-family: var(--font-family-base);
+
+    display: flex;
+   10	    flex-direction: column;
+   11	
+   12	    & > * {
+   13	      flex: 1 1 auto;
+   14	      min-height: 0;
+   15	    }
+   16	  }
+   17	
+   18	  /* Recharts overrides */
+   19	  .container :global(.recharts-cartesian-axis-tick text) {
+   20	    fill: var(--muted-foreground);
+   21	    font-size: 0.75rem;
+   22	  }
+   23	
+   24	  .container :global(.recharts-cartesian-grid line[stroke="#ccc"]) {
+   25	    stroke: color-mix(in srgb, var(--border) 50%, transparent);
+   26	  }
+   27	
+   28	  .container :global(.recharts-curve.recharts-tooltip-cursor) {
+   29	    stroke: var(--border);
+   30	  }
+   31	
+   32	  .container :global(.recharts-dot[stroke="#fff"]) {
+   33	    stroke: transparent;
+   34	  }
+   35	
+   36	  .container :global(.recharts-layer) {
+   37	    outline: none;
+   38	  }
+   39	
+   40	  .container :global(.recharts-polar-grid[stroke="#ccc"]) {
+   41	    stroke: var(--border);
+   42	  }
+   43	
+   44	  .container :global(.recharts-radial-bar-background-sector) {
+   45	    fill: var(--muted);
+   46	  }
+   47	
+   48	  .container :global(.recharts-rectangle.recharts-tooltip-cursor) {
+   49	    fill: var(--muted);
+   50	    opacity: 0.3;
+   51	  }
+   52	
+   53	  .container :global(.recharts-reference-line[stroke="#ccc"]) {
+   54	    stroke: var(--border);
+   55	  }
+   56	
+   57	  .container :global(.recharts-sector[stroke="#fff"]) {
+   58	    stroke: transparent;
+   59	  }
+   60	
+   61	  .container :global(.recharts-sector) {
+   62	    outline: none;
+   63	  }
+   64	
+   65	  .container :global(.recharts-surface) {
+   66	    outline: none;
+   67	  }
+   68	
+   69	  /* Tooltip */
+   70	  .tooltip {
+   71	    background-color: var(--popup);
+   72	    color: var(--popup-foreground);
+   73	    border-radius: var(--radius);
+   74	    box-shadow: var(--shadow-md);
+   75	    padding: var(--spacing-3);
+   76	    border: 1px solid var(--border);
+   77	    max-width: 300px;
+   78	    min-width: 180px;
+   79	    z-index: var(--z-overlay);
+   80	    transition:
+   81	      opacity var(--animation-duration-normal) ease-in-out,
+   82	      transform var(--animation-duration-normal) ease-in-out;
+   83	    transform-origin: center top;
+   84	    animation: tooltipFadeIn var(--animation-duration-normal) ease-in-out;
+   85	  }
+   86	
+   87	  @keyframes tooltipFadeIn {
+   88	    from {
+   89	      opacity: 0;
+   90	      transform: translateY(-4px);
+   91	    }
+   92	    to {
+   93	      opacity: 1;
+   94	      transform: translateY(0);
+   95	    }
+   96	  }
+   97	
+   98	  .tooltipLabel {
+   99	    font-weight: 600;
+  100	    font-size: 0.875rem;
+  101	    margin-bottom: var(--spacing-2);
+  102	    color: var(--popup-foreground);
+  103	    padding-bottom: var(--spacing-2);
+  104	    border-bottom: 1px solid var(--border);
+  105	  }
+  106	
+  107	  .tooltipItems {
+  108	    display: flex;
+  109	    flex-direction: column;
+  110	    gap: var(--spacing-2);
+  111	  }
+  112	
+  113	  .tooltipItem {
+  114	    display: flex;
+  115	    align-items: center;
+  116	    gap: var(--spacing-2);
+  117	    font-size: 0.875rem;
+  118	  }
+  119	
+  120	  .tooltipItemIndicator {
+  121	    flex-shrink: 0;
+  122	  }
+  123	
+  124	  .tooltipItemIndicator-dot {
+  125	    width: 8px;
+  126	    height: 8px;
+  127	    border-radius: var(--radius-full);
+  128	    background-color: var(--color-bg, var(--chart-color-5));
+  129	  }
+  130	
+  131	  .tooltipItemIndicator-line {
+  132	    width: 12px;
+  133	    height: 2px;
+  134	    background-color: var(--color-bg, var(--chart-color-3));
+  135	  }
+  136	
+  137	  .tooltipItemIndicator-dashed {
+  138	    width: 12px;
+  139	    height: 2px;
+  140	    background: repeating-linear-gradient(
+  141	      to right,
+  142	      var(--color-bg, var(--chart-color-4)),
+  143	      var(--color-bg, var(--chart-color-4)) 2px,
+  144	      transparent 2px,
+  145	      transparent 4px
+  146	    );
+  147	  }
+  148	
+  149	  .tooltipItemIndicator-nested-dashed {
+  150	    width: 12px;
+  151	    height: 2px;
+  152	    background: repeating-linear-gradient(
+  153	      to right,
+  154	      var(--color-bg, var(--chart-color-4)),
+  155	      var(--color-bg, var(--chart-color-4)) 2px,
+  156	      transparent 2px,
+  157	      transparent 4px
+  158	    );
+  159	    margin-right: var(--spacing-1);
+  160	  }
+  161	
+  162	  .tooltipItemLabel {
+  163	    display: flex;
+  164	    flex: 1;
+  165	    justify-content: space-between;
+  166	    align-items: center;
+  167	    gap: var(--spacing-2);
+  168	  }
+  169	
+  170	  .tooltipItemLabel-nested {
+  171	    flex-direction: column;
+  172	    align-items: flex-start;
+  173	    gap: var(--spacing-1);
+  174	  }
+  175	
+  176	  .tooltipItemLabel-center {
+  177	    align-items: center;
+  178	  }
+  179	
+  180	  .tooltipItemLabelContent {
+  181	    display: flex;
+  182	    flex-direction: column;
+  183	    gap: var(--spacing-1);
+  184	  }
+  185	
+  186	  .tooltipItemLabelText {
+  187	    color: var(--popup-foreground);
+  188	    font-weight: 500;
+  189	  }
+  190	
+  191	  .tooltipItemValue {
+  192	    font-weight: 600;
+  193	    color: var(--popup-foreground);
+  194	  }
+  195	
+  196	  /* Legend */
+  197	  .legend {
+  198	    display: flex;
+  199	    flex-wrap: wrap;
+  200	    gap: var(--spacing-4);
+  201	    justify-content: center;
+  202	    padding: var(--spacing-3);
+  203	  }
+  204	
+  205	  .legend-top {
+  206	    margin-bottom: var(--spacing-4);
+  207	  }
+  208	
+  209	  .legend-bottom {
+  210	    margin-top: var(--spacing-4);
+  211	  }
+  212	
+  213	  .legendItem {
+  214	    display: flex;
+  215	    align-items: center;
+  216	    gap: var(--spacing-2);
+  217	    font-size: 0.875rem;
+  218	    color: var(--surface-foreground);
+  219	  }
+  220	
+  221	  .legendItemIcon {
+  222	    width: 12px;
+  223	    height: 12px;
+  224	    border-radius: var(--radius-sm);
+  225	    flex-shrink: 0;
+  226	  }
+  227	}
+  228	

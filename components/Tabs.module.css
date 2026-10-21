@@ -1,0 +1,115 @@
+
+@layer base {
+  .tabsList {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+   10	  }
+   11	
+   12	  .tabsList::-webkit-scrollbar {
+   13	    display: none; /* Chrome, Safari, Opera */
+   14	  }
+   15	
+   16	  .tabsTrigger {
+   17	    display: inline-flex;
+   18	    align-items: center;
+   19	    justify-content: center;
+   20	    font-family: var(--font-family-base);
+   21	    font-size: 0.9rem;
+   22	    font-weight: 500;
+   23	    color: var(--muted-foreground);
+   24	    background-color: transparent;
+   25	    padding: var(--spacing-3) var(--spacing-4);
+   26	    border: none;
+   27	    border-radius: 0;
+   28	    cursor: pointer;
+   29	    position: relative;
+   30	    transition: color var(--animation-duration-normal)
+   31	      cubic-bezier(0.22, 1, 0.36, 1);
+   32	    white-space: nowrap;
+   33	  }
+   34	
+   35	  .tabsTrigger:hover {
+   36	    color: var(--foreground);
+   37	  }
+   38	
+   39	  .tabsTrigger[data-state="active"] {
+   40	    color: var(--primary);
+   41	    font-weight: 600;
+   42	  }
+   43	
+   44	  /* Modern indicator with better animation */
+   45	  .tabsTrigger[data-state="active"]::after {
+   46	    content: "";
+   47	    position: absolute;
+   48	    bottom: 0;
+   49	    left: 0;
+   50	    right: 0;
+   51	    height: 2px;
+   52	    background-color: var(--primary);
+   53	    transform-origin: center;
+   54	    transition: transform var(--animation-duration-normal)
+   55	      cubic-bezier(0.22, 1, 0.36, 1);
+   56	    transform: scaleX(1);
+   57	  }
+   58	
+   59	  /* Subtle hover indicator */
+   60	  .tabsTrigger:not([data-state="active"]):hover::after {
+   61	    content: "";
+   62	    position: absolute;
+   63	    bottom: 0;
+   64	    left: 0;
+   65	    right: 0;
+   66	    height: 2px;
+   67	    background-color: color-mix(
+   68	      in srgb,
+   69	      var(--muted-foreground) 30%,
+   70	      transparent
+   71	    );
+   72	    transform-origin: center;
+   73	    transform: scaleX(0.6);
+   74	    transition:
+   75	      transform var(--animation-duration-normal) cubic-bezier(0.22, 1, 0.36, 1),
+   76	      background-color var(--animation-duration-normal)
+   77	        cubic-bezier(0.22, 1, 0.36, 1);
+   78	  }
+   79	
+   80	  .tabsTrigger:focus-visible {
+   81	    outline: none;
+   82	    box-shadow: var(--shadow-focus);
+   83	    border-radius: var(--radius-sm);
+   84	  }
+   85	
+   86	  .tabsTrigger[disabled] {
+   87	    opacity: 0.5;
+   88	    cursor: not-allowed;
+   89	    color: var(--muted-foreground);
+   90	  }
+   91	
+   92	  .tabsContent {
+   93	    color: var(--foreground);
+   94	    outline: none;
+   95	  }
+   96	
+   97	  .tabsContent[hidden] {
+   98	    display: none !important;
+   99	  }
+  100	
+  101	  /* Dark mode improvements */
+  102	  :global(.dark) .tabsTrigger[data-state="active"]::after {
+  103	    background-color: var(--primary);
+  104	  }
+  105	
+  106	  :global(.dark) .tabsTrigger:not([data-state="active"]):hover::after {
+  107	    background-color: color-mix(
+  108	      in srgb,
+  109	      var(--muted-foreground) 40%,
+  110	      transparent
+  111	    );
+  112	  }
+  113	}
+  114	
