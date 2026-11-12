@@ -1,4 +1,3 @@
-
 @layer base {
   .content {
     max-width: 24rem;
@@ -8,76 +7,75 @@
     border-radius: var(--radius-md);
     font-size: 0.9375rem;
     line-height: 1.5;
-   10	    box-shadow: var(--shadow-lg);
-   11	    font-family: var(--font-family-base);
-   12	    z-index: var(--z-overlay);
-   13	    overflow-wrap: break-word;
-   14	    word-break: keep-all;
-   15	
-   16	    /* Animation */
-   17	    animation-duration: var(--animation-duration-normal);
-   18	    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-   19	    will-change: transform, opacity;
-   20	  }
-   21	
-   22	  .content[data-state="open"][data-side="top"] {
-   23	    animation-name: slideDownAndFade;
-   24	  }
-   25	
-   26	  .content[data-state="open"][data-side="bottom"] {
-   27	    animation-name: slideUpAndFade;
-   28	  }
-   29	
-   30	  .content[data-state="open"][data-side="left"] {
-   31	    animation-name: slideRightAndFade;
-   32	  }
-   33	
-   34	  .content[data-state="open"][data-side="right"] {
-   35	    animation-name: slideLeftAndFade;
-   36	  }
-   37	
-   38	  @keyframes slideUpAndFade {
-   39	    from {
-   40	      opacity: 0;
-   41	      transform: translateY(8px);
-   42	    }
-   43	    to {
-   44	      opacity: 1;
-   45	      transform: translateY(0);
-   46	    }
-   47	  }
-   48	
-   49	  @keyframes slideDownAndFade {
-   50	    from {
-   51	      opacity: 0;
-   52	      transform: translateY(-8px);
-   53	    }
-   54	    to {
-   55	      opacity: 1;
-   56	      transform: translateY(0);
-   57	    }
-   58	  }
-   59	
-   60	  @keyframes slideLeftAndFade {
-   61	    from {
-   62	      opacity: 0;
-   63	      transform: translateX(8px);
-   64	    }
-   65	    to {
-   66	      opacity: 1;
-   67	      transform: translateX(0);
-   68	    }
-   69	  }
-   70	
-   71	  @keyframes slideRightAndFade {
-   72	    from {
-   73	      opacity: 0;
-   74	      transform: translateX(-8px);
-   75	    }
-   76	    to {
-   77	      opacity: 1;
-   78	      transform: translateX(0);
-   79	    }
-   80	  }
-   81	}
-   82	
+    box-shadow: var(--shadow-lg);
+    font-family: var(--font-family-base);
+    z-index: var(--z-overlay);
+    overflow-wrap: break-word;
+    word-break: keep-all;
+
+    /* Animation */
+    animation-duration: var(--animation-duration-normal);
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+  }
+
+  .content[data-state="open"][data-side="top"] {
+    animation-name: slideDownAndFade;
+  }
+
+  .content[data-state="open"][data-side="bottom"] {
+    animation-name: slideUpAndFade;
+  }
+
+  .content[data-state="open"][data-side="left"] {
+    animation-name: slideRightAndFade;
+  }
+
+  .content[data-state="open"][data-side="right"] {
+    animation-name: slideLeftAndFade;
+  }
+
+  @keyframes slideUpAndFade {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDownAndFade {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideLeftAndFade {
+    from {
+      opacity: 0;
+      transform: translateX(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideRightAndFade {
+    from {
+      opacity: 0;
+      transform: translateX(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

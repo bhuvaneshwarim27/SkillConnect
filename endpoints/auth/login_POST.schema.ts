@@ -1,4 +1,3 @@
-
 import { z } from 'zod';
 import superjson from 'superjson';
 export const schema = z.object({email:z.string().trim().email().max(254).transform(v=>v.toLowerCase()),password:z.string().min(1).max(72)});

@@ -1,4 +1,3 @@
-
 @layer base {
   .content,
   .subContent {
@@ -8,150 +7,149 @@
     color: var(--popup-foreground);
     border-radius: var(--radius);
     box-shadow: var(--shadow-md);
-   10	    padding: var(--spacing-2);
-   11	    animation: scaleIn var(--animation-duration-normal) ease-out;
-   12	    z-index: var(--z-overlay);
-   13	  }
-   14	
-   15	  .subContent {
-   16	    animation: fadeIn var(--animation-duration-normal) ease-out;
-   17	  }
-   18	
-   19	  .item,
-   20	  .checkboxItem,
-   21	  .radioItem,
-   22	  .subTrigger {
-   23	    position: relative;
-   24	    display: flex;
-   25	    align-items: center;
-   26	    cursor: pointer;
-   27	    user-select: none;
-   28	    border-radius: var(--radius-sm);
-   29	    font-size: 0.9375rem;
-   30	    padding: var(--spacing-2) var(--spacing-3);
-   31	    outline: none;
-   32	    transition:
-   33	      background-color var(--animation-duration-fast),
-   34	      color var(--animation-duration-fast);
-   35	  }
-   36	
-   37	  .item:hover,
-   38	  .checkboxItem:hover,
-   39	  .radioItem:hover,
-   40	  .subTrigger:hover {
-   41	    background-color: color-mix(in srgb, var(--primary) 8%, transparent);
-   42	    color: var(--primary);
-   43	  }
-   44	
-   45	  .item:focus-visible,
-   46	  .checkboxItem:focus-visible,
-   47	  .radioItem:focus-visible,
-   48	  .subTrigger:focus-visible {
-   49	    background-color: color-mix(in srgb, var(--primary) 12%, transparent);
-   50	    color: var(--primary);
-   51	  }
-   52	
-   53	  .item[data-disabled],
-   54	  .checkboxItem[data-disabled],
-   55	  .radioItem[data-disabled],
-   56	  .subTrigger[data-disabled] {
-   57	    pointer-events: none;
-   58	    opacity: 0.5;
-   59	  }
-   60	
-   61	  .item[data-highlighted],
-   62	  .checkboxItem[data-highlighted],
-   63	  .radioItem[data-highlighted],
-   64	  .subTrigger[data-highlighted] {
-   65	    background-color: var(--primary);
-   66	    color: var(--primary-foreground);
-   67	  }
-   68	
-   69	  .checkboxItem,
-   70	  .radioItem {
-   71	    padding-left: var(--spacing-8);
-   72	  }
-   73	
-   74	  .checkboxIndicator,
-   75	  .radioIndicator {
-   76	    position: absolute;
-   77	    left: var(--spacing-3);
-   78	    display: flex;
-   79	    align-items: center;
-   80	    justify-content: center;
-   81	  }
-   82	
-   83	  .checkboxIndicator {
-   84	    height: 1rem;
-   85	    width: 1rem;
-   86	  }
-   87	
-   88	  .checkboxIndicator svg {
-   89	    height: 0.875rem;
-   90	    width: 0.875rem;
-   91	  }
-   92	
-   93	  .radioIndicator {
-   94	    height: 1rem;
-   95	    width: 1rem;
-   96	  }
-   97	
-   98	  .radioIndicatorCircle {
-   99	    width: 0.5rem;
-  100	    height: 0.5rem;
-  101	    border-radius: var(--radius-full);
-  102	    background-color: currentColor;
-  103	  }
-  104	
-  105	  .label {
-  106	    padding: var(--spacing-2) var(--spacing-3);
-  107	    font-size: 0.875rem;
-  108	    font-weight: 500;
-  109	    color: var(--muted-foreground);
-  110	  }
-  111	
-  112	  .separator {
-  113	    height: 1px;
-  114	    margin: var(--spacing-2) 0;
-  115	    background-color: var(--border);
-  116	  }
-  117	
-  118	  .shortcut {
-  119	    margin-left: auto;
-  120	    font-size: 0.75rem;
-  121	    letter-spacing: 0.025em;
-  122	    opacity: 0.6;
-  123	  }
-  124	
-  125	  .subTriggerIcon {
-  126	    margin-left: auto;
-  127	    height: 1rem;
-  128	    width: 1rem;
-  129	    opacity: 0.75;
-  130	  }
-  131	
-  132	  .inset {
-  133	    padding-left: var(--spacing-8);
-  134	  }
-  135	
-  136	  @keyframes scaleIn {
-  137	    from {
-  138	      opacity: 0;
-  139	      transform: scale(0.97);
-  140	    }
-  141	    to {
-  142	      opacity: 1;
-  143	      transform: scale(1);
-  144	    }
-  145	  }
-  146	
-  147	  @keyframes fadeIn {
-  148	    from {
-  149	      opacity: 0;
-  150	    }
-  151	    to {
-  152	      opacity: 1;
-  153	    }
-  154	  }
-  155	}
-  156	
+    padding: var(--spacing-2);
+    animation: scaleIn var(--animation-duration-normal) ease-out;
+    z-index: var(--z-overlay);
+  }
+
+  .subContent {
+    animation: fadeIn var(--animation-duration-normal) ease-out;
+  }
+
+  .item,
+  .checkboxItem,
+  .radioItem,
+  .subTrigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.9375rem;
+    padding: var(--spacing-2) var(--spacing-3);
+    outline: none;
+    transition:
+      background-color var(--animation-duration-fast),
+      color var(--animation-duration-fast);
+  }
+
+  .item:hover,
+  .checkboxItem:hover,
+  .radioItem:hover,
+  .subTrigger:hover {
+    background-color: color-mix(in srgb, var(--primary) 8%, transparent);
+    color: var(--primary);
+  }
+
+  .item:focus-visible,
+  .checkboxItem:focus-visible,
+  .radioItem:focus-visible,
+  .subTrigger:focus-visible {
+    background-color: color-mix(in srgb, var(--primary) 12%, transparent);
+    color: var(--primary);
+  }
+
+  .item[data-disabled],
+  .checkboxItem[data-disabled],
+  .radioItem[data-disabled],
+  .subTrigger[data-disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .item[data-highlighted],
+  .checkboxItem[data-highlighted],
+  .radioItem[data-highlighted],
+  .subTrigger[data-highlighted] {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  .checkboxItem,
+  .radioItem {
+    padding-left: var(--spacing-8);
+  }
+
+  .checkboxIndicator,
+  .radioIndicator {
+    position: absolute;
+    left: var(--spacing-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .checkboxIndicator {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .checkboxIndicator svg {
+    height: 0.875rem;
+    width: 0.875rem;
+  }
+
+  .radioIndicator {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .radioIndicatorCircle {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: var(--radius-full);
+    background-color: currentColor;
+  }
+
+  .label {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+  }
+
+  .separator {
+    height: 1px;
+    margin: var(--spacing-2) 0;
+    background-color: var(--border);
+  }
+
+  .shortcut {
+    margin-left: auto;
+    font-size: 0.75rem;
+    letter-spacing: 0.025em;
+    opacity: 0.6;
+  }
+
+  .subTriggerIcon {
+    margin-left: auto;
+    height: 1rem;
+    width: 1rem;
+    opacity: 0.75;
+  }
+
+  .inset {
+    padding-left: var(--spacing-8);
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

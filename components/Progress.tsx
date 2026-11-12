@@ -1,4 +1,3 @@
-
 "use client"
 
 import * as React from "react"
@@ -8,19 +7,18 @@ import styles from "./Progress.module.css"
 const Progress = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
-   10	>(({ className, value, ...props }, ref) => (
-   11	  <ProgressPrimitive.Root
-   12	    ref={ref}
-   13	    className={`${styles.progress} ${className ?? ""}`}
-   14	    {...props}
-   15	  >
-   16	    <ProgressPrimitive.Indicator
-   17	      className={styles.indicator}
-   18	      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
-   19	    />
-   20	  </ProgressPrimitive.Root>
-   21	))
-   22	Progress.displayName = ProgressPrimitive.Root.displayName
-   23	
-   24	export { Progress }
-   25	
+>(({ className, value, ...props }, ref) => (
+  <ProgressPrimitive.Root
+    ref={ref}
+    className={`${styles.progress} ${className ?? ""}`}
+    {...props}
+  >
+    <ProgressPrimitive.Indicator
+      className={styles.indicator}
+      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+    />
+  </ProgressPrimitive.Root>
+))
+Progress.displayName = ProgressPrimitive.Root.displayName
+
+export { Progress }

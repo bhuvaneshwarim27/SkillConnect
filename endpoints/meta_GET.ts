@@ -1,4 +1,3 @@
-
 import superjson from 'superjson';
 import { db } from '../helpers/db';
 export async function handle(){const [skills,areas]=await Promise.all([db.selectFrom('skills').selectAll().orderBy('name').execute(),db.selectFrom('areas').selectAll().orderBy('name').execute()]);return new Response(superjson.stringify({skills,areas}),{headers:{'Content-Type':'application/json','Cache-Control':'public, max-age=300'}});}

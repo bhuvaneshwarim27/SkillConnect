@@ -1,4 +1,3 @@
-
 import { z } from 'zod';import superjson from 'superjson';
 export const schema=z.object({bookingId:z.string().min(1),action:z.enum(['accept','reject','start','complete','cancel']),finalPrice:z.number().int().min(0).max(10000000).optional()}).superRefine((v,c)=>{if(v.action==='complete'&&v.finalPrice===undefined)c.addIssue({code:'custom',path:['finalPrice'],message:'Final price is required to complete a job.'})});
 export type InputType=z.infer<typeof schema>;export type OutputType={message:string;status:string};

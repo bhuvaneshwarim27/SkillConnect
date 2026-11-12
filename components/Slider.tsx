@@ -1,4 +1,3 @@
-
 "use client";
 
 import * as React from "react";
@@ -8,26 +7,25 @@ import styles from "./Slider.module.css";
 const Slider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>
-   10	>(({ className, ...props }, ref) => {
-   11	  const isRange =
-   12	    (Array.isArray(props.defaultValue) && props.defaultValue.length > 1) ||
-   13	    (Array.isArray(props.value) && props.value.length > 1);
-   14	
-   15	  return (
-   16	    <SliderPrimitive.Root
-   17	      ref={ref}
-   18	      className={`${styles.slider} ${className ?? ""}`}
-   19	      {...props}
-   20	    >
-   21	      <SliderPrimitive.Track className={styles.track}>
-   22	        <SliderPrimitive.Range className={styles.range} />
-   23	      </SliderPrimitive.Track>
-   24	      <SliderPrimitive.Thumb className={styles.thumb} />
-   25	      {isRange && <SliderPrimitive.Thumb className={styles.thumb} />}
-   26	    </SliderPrimitive.Root>
-   27	  );
-   28	});
-   29	Slider.displayName = SliderPrimitive.Root.displayName;
-   30	
-   31	export { Slider };
-   32	
+>(({ className, ...props }, ref) => {
+  const isRange =
+    (Array.isArray(props.defaultValue) && props.defaultValue.length > 1) ||
+    (Array.isArray(props.value) && props.value.length > 1);
+
+  return (
+    <SliderPrimitive.Root
+      ref={ref}
+      className={`${styles.slider} ${className ?? ""}`}
+      {...props}
+    >
+      <SliderPrimitive.Track className={styles.track}>
+        <SliderPrimitive.Range className={styles.range} />
+      </SliderPrimitive.Track>
+      <SliderPrimitive.Thumb className={styles.thumb} />
+      {isRange && <SliderPrimitive.Thumb className={styles.thumb} />}
+    </SliderPrimitive.Root>
+  );
+});
+Slider.displayName = SliderPrimitive.Root.displayName;
+
+export { Slider };

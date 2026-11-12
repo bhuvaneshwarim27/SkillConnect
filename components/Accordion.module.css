@@ -1,4 +1,3 @@
-
 @layer base {
   .item {
     border-radius: var(--radius);
@@ -8,112 +7,111 @@
     margin-bottom: var(--spacing-4);
     box-shadow: var(--shadow);
     transition: box-shadow var(--animation-duration-normal) ease;
-   10	  }
-   11	
-   12	  .item:hover:not(:has(.trigger:disabled)) {
-   13	    box-shadow: var(--shadow-md);
-   14	  }
-   15	
-   16	  .item:has(.trigger:disabled) {
-   17	    opacity: 0.6;
-   18	    box-shadow: var(--shadow);
-   19	  }
-   20	
-   21	  .header {
-   22	    display: flex;
-   23	  }
-   24	
-   25	  .trigger {
-   26	    display: flex;
-   27	    align-items: center;
-   28	    justify-content: space-between;
-   29	    width: 100%;
-   30	    padding: var(--spacing-4) var(--spacing-6);
-   31	    font-family: var(--font-family-heading);
-   32	    font-weight: 400;
-   33	    line-height: 1.5;
-   34	    letter-spacing: -0.01em;
-   35	    text-align: left;
-   36	    background-color: transparent;
-   37	    color: inherit;
-   38	    border: none;
-   39	    cursor: pointer;
-   40	    transition: opacity var(--animation-duration-fast) ease;
-   41	  }
-   42	
-   43	  .trigger:hover:not(:disabled) {
-   44	    opacity: 0.8;
-   45	  }
-   46	
-   47	  .trigger:active:not(:disabled) {
-   48	    opacity: 0.7;
-   49	  }
-   50	
-   51	  .trigger:disabled {
-   52	    opacity: 0.6;
-   53	    cursor: not-allowed;
-   54	    color: var(--muted-foreground);
-   55	  }
-   56	
-   57	  .trigger:focus-visible {
-   58	    outline: 2px solid var(--primary);
-   59	    outline-offset: 2px;
-   60	  }
-   61	
-   62	  .icon {
-   63	    width: 1rem;
-   64	    height: 1rem;
-   65	    transition: transform var(--animation-duration-normal)
-   66	      cubic-bezier(0.16, 1, 0.3, 1);
-   67	    flex-shrink: 0;
-   68	    color: var(--muted-foreground);
-   69	  }
-   70	
-   71	  .trigger:disabled .icon {
-   72	    color: var(--muted-foreground);
-   73	    opacity: 0.5;
-   74	  }
-   75	
-   76	  .trigger[data-state="open"] .icon {
-   77	    transform: rotate(180deg);
-   78	  }
-   79	
-   80	  .content {
-   81	    overflow: hidden;
-   82	    background-color: transparent;
-   83	    color: inherit;
-   84	    animation: accordion-up var(--animation-duration-normal)
-   85	      cubic-bezier(0.16, 1, 0.3, 1);
-   86	  }
-   87	
-   88	  .content[data-state="open"] {
-   89	    animation: accordion-down var(--animation-duration-normal)
-   90	      cubic-bezier(0.16, 1, 0.3, 1);
-   91	  }
-   92	
-   93	  .contentInner {
-   94	    padding: var(--spacing-3) var(--spacing-6) var(--spacing-4);
-   95	    color: var(--muted-foreground);
-   96	    font-size: 0.95rem;
-   97	    line-height: 1.6;
-   98	  }
-   99	
-  100	  @keyframes accordion-up {
-  101	    from {
-  102	      height: var(--radix-accordion-content-height);
-  103	    }
-  104	    to {
-  105	      height: 0;
-  106	    }
-  107	  }
-  108	
-  109	  @keyframes accordion-down {
-  110	    from {
-  111	      height: 0;
-  112	    }
-  113	    to {
-  114	      height: var(--radix-accordion-content-height);
-  115	    }
-  116	  }
-  117	}
-  118	
+  }
+
+  .item:hover:not(:has(.trigger:disabled)) {
+    box-shadow: var(--shadow-md);
+  }
+
+  .item:has(.trigger:disabled) {
+    opacity: 0.6;
+    box-shadow: var(--shadow);
+  }
+
+  .header {
+    display: flex;
+  }
+
+  .trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--spacing-4) var(--spacing-6);
+    font-family: var(--font-family-heading);
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    text-align: left;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    transition: opacity var(--animation-duration-fast) ease;
+  }
+
+  .trigger:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+
+  .trigger:active:not(:disabled) {
+    opacity: 0.7;
+  }
+
+  .trigger:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    color: var(--muted-foreground);
+  }
+
+  .trigger:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  .icon {
+    width: 1rem;
+    height: 1rem;
+    transition: transform var(--animation-duration-normal)
+      cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+    color: var(--muted-foreground);
+  }
+
+  .trigger:disabled .icon {
+    color: var(--muted-foreground);
+    opacity: 0.5;
+  }
+
+  .trigger[data-state="open"] .icon {
+    transform: rotate(180deg);
+  }
+
+  .content {
+    overflow: hidden;
+    background-color: transparent;
+    color: inherit;
+    animation: accordion-up var(--animation-duration-normal)
+      cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .content[data-state="open"] {
+    animation: accordion-down var(--animation-duration-normal)
+      cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .contentInner {
+    padding: var(--spacing-3) var(--spacing-6) var(--spacing-4);
+    color: var(--muted-foreground);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+}

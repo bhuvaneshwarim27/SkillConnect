@@ -1,4 +1,3 @@
-
 @layer base {
   .skeleton {
     position: relative;
@@ -8,42 +7,41 @@
     width: 100%;
     height: 1rem;
   }
-   10	
-   11	  .skeleton::after {
-   12	    content: "";
-   13	    position: absolute;
-   14	    top: 0;
-   15	    right: 0;
-   16	    bottom: 0;
-   17	    left: 0;
-   18	    transform: translateX(-100%);
-   19	    background-image: linear-gradient(
-   20	      90deg,
-   21	      transparent,
-   22	      rgba(255, 255, 255, 0.4),
-   23	      transparent
-   24	    );
-   25	    animation: shimmer 2s infinite;
-   26	  }
-   27	
-   28	  @keyframes shimmer {
-   29	    100% {
-   30	      transform: translateX(100%);
-   31	    }
-   32	  }
-   33	
-   34	  /* Dark mode adjustments */
-   35	  :global(.dark) .skeleton {
-   36	    background-color: var(--muted);
-   37	  }
-   38	
-   39	  :global(.dark) .skeleton::after {
-   40	    background-image: linear-gradient(
-   41	      90deg,
-   42	      transparent,
-   43	      rgba(255, 255, 255, 0.05),
-   44	      transparent
-   45	    );
-   46	  }
-   47	}
-   48	
+
+  .skeleton::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Dark mode adjustments */
+  :global(.dark) .skeleton {
+    background-color: var(--muted);
+  }
+
+  :global(.dark) .skeleton::after {
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
+  }
+}

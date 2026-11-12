@@ -1,4 +1,3 @@
-
 .panelGroup {
   display: flex;
   width: 100%;
@@ -8,67 +7,66 @@
   overflow: hidden;
 }
 
-   10	.panel {
-   11	  display: flex;
-   12	  flex-direction: column;
-   13	  background-color: var(--card);
-   14	  border-radius: var(--radius);
-   15	  overflow: auto;
-   16	  padding: var(--spacing-4);
-   17	}
-   18	
-   19	.resizeHandle {
-   20	  position: relative;
-   21	    display: flex;
-   22	    align-items: center;
-   23	    justify-content: center;
-   24	    background: transparent;
-   25	  transition: background-color var(--animation-duration-fast) ease;
-   26	}
-   27	
-   28	.resizeHandle[data-orientation="horizontal"] {
-   29	  width: 0.25rem;
-   30	  margin: 0 0.25rem;
-   31	  cursor: col-resize;
-   32	}
-   33	
-   34	.resizeHandle[data-orientation="vertical"] {
-   35	  height: 0.25rem;
-   36	  margin: 0.25rem 0;
-   37	  cursor: row-resize;
-   38	}
-   39	
-   40	.resizeHandle:hover {
-   41	  background-color: var(--muted);
-   42	}
-   43	
-   44	.resizeHandle:active {
-   45	  background-color: var(--primary);
-   46	}
-   47	
-   48	.resizeHandleGrip {
-   49	  display: flex;
-   50	  justify-content: center;
-   51	  align-items: center;
-   52	  width: 4px;
-   53	  height: 4px;
-   54	  border-radius: var(--radius-sm);
-   55	  background-color: var(--surface);
-   56	  color: var(--muted-foreground);
-   57	  transition: background-color var(--animation-duration-fast) ease;
-   58	}
-   59	
-   60	.resizeHandle:hover .resizeHandleGrip {
-   61	  background-color: var(--muted);
-   62	  color: var(--foreground);
-   63	}
-   64	
-   65	.resizeHandle:active .resizeHandleGrip {
-   66	  background-color: var(--primary);
-   67	  color: var(--primary-foreground);
-   68	}
-   69	
-   70	.gripIcon {
-   71	  color: inherit;
-   72	}
-   73	
+.panel {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card);
+  border-radius: var(--radius);
+  overflow: auto;
+  padding: var(--spacing-4);
+}
+
+.resizeHandle {
+  position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  transition: background-color var(--animation-duration-fast) ease;
+}
+
+.resizeHandle[data-orientation="horizontal"] {
+  width: 0.25rem;
+  margin: 0 0.25rem;
+  cursor: col-resize;
+}
+
+.resizeHandle[data-orientation="vertical"] {
+  height: 0.25rem;
+  margin: 0.25rem 0;
+  cursor: row-resize;
+}
+
+.resizeHandle:hover {
+  background-color: var(--muted);
+}
+
+.resizeHandle:active {
+  background-color: var(--primary);
+}
+
+.resizeHandleGrip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4px;
+  height: 4px;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface);
+  color: var(--muted-foreground);
+  transition: background-color var(--animation-duration-fast) ease;
+}
+
+.resizeHandle:hover .resizeHandleGrip {
+  background-color: var(--muted);
+  color: var(--foreground);
+}
+
+.resizeHandle:active .resizeHandleGrip {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.gripIcon {
+  color: inherit;
+}

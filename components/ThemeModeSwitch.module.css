@@ -1,4 +1,3 @@
-
 .container {
   display: inline-flex;
   position: relative;
@@ -8,33 +7,33 @@
   position: relative;
   transition: transform var(--animation-duration-normal) ease;
 }
-   10	
-   11	.themeButton:hover {
-   12	  transform: scale(1.05);
-   13	}
-   14	
-   15	.icon {
-   16	  color: var(--foreground);
-   17	  transition: transform var(--animation-duration-normal) ease;
-   18	}
-   19	
-   20	.menuIcon {
-   21	  margin-right: var(--spacing-2);
-   22	  color: currentColor;
-   23	}
-   24	
-   25	.activeItem {
-   26	  font-weight: 500;
-   27	  color: var(--primary);
-   28	  background-color: color-mix(in srgb, var(--primary), transparent 90%) !important;
-   29	}
-   30	
-   31	.checkmark {
-   32	  margin-left: auto;
-   33	  font-weight: bold;
-   34	}
-   35	
-   36	/* Dark mode adjustments */
-   37	:global(.dark) .icon {
-   38	  color: var(--foreground);
-   39	}
+
+.themeButton:hover {
+  transform: scale(1.05);
+}
+
+.icon {
+  color: var(--foreground);
+  transition: transform var(--animation-duration-normal) ease;
+}
+
+.menuIcon {
+  margin-right: var(--spacing-2);
+  color: currentColor;
+}
+
+.activeItem {
+  font-weight: 500;
+  color: var(--primary);
+  background-color: color-mix(in srgb, var(--primary), transparent 90%) !important;
+}
+
+.checkmark {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+/* Dark mode adjustments */
+:global(.dark) .icon {
+  color: var(--foreground);
+}

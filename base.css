@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
 
 :root {
@@ -8,105 +7,105 @@
   --z-spotlight: 1000; /* Tutorial spotlights/guided help */
 
   /* System layers */
-   10	  --z-critical: 2000; /* Critical system notifications */
-   11	
-   12	  /* spacing */
-   13	  --spacing-1: 0.25rem;
-   14	  --spacing-2: 0.5rem;
-   15	  --spacing-3: 0.75rem;
-   16	  --spacing-4: 1rem;
-   17	  --spacing-6: 1.5rem;
-   18	  --spacing-8: 2rem;
-   19	  --spacing-12: 3rem;
-   20	  --spacing-16: 4rem;
-   21	  --spacing-20: 5rem;
-   22	}
-   23	
-   24	:root {
-   25	  --background: #f8f7f1;
-   26	  --foreground: #202c25;
-   27	  --surface: #f0efe5;
-   28	  --surface-foreground: #26372c;
-   29	  --sidebar: #eeeee4;
-   30	  --sidebar-foreground: #26372c;
-   31	  --card: #fffef9;
-   32	  --card-foreground: #202c25;
-   33	  --popup: #fffefb;
-   34	  --popup-foreground: #202c25;
-   35	  --primary: #236b4b;
-   36	  --primary-foreground: #ffffff;
-   37	  --secondary: #e4e9df;
-   38	  --secondary-foreground: #31543e;
-   39	  --accent: #e7b96c;
-   40	  --accent-foreground: #3d2d14;
-   41	  --muted: #e9e8df;
-   42	  --muted-foreground: #69756b;
-   43	  --success: #27764f;
-   44	  --success-foreground: #ffffff;
-   45	  --error: #b7443b;
-   46	  --error-foreground: #ffffff;
-   47	  --warning: #a56a19;
-   48	  --warning-foreground: #ffffff;
-   49	  --info: #3d6e91;
-   50	  --info-foreground: #ffffff;
-   51	  --info-hover: #315d7c;
-   52	  --info-active: #264b65;
-   53	  --border: #dedfd4;
-   54	  --font-family-base: 'DM Sans', 'Noto Sans Kannada', 'Noto Sans Devanagari', sans-serif;
-   55	  --font-family-display: 'Fraunces', Georgia, serif;
-   56	  --font-family-monospace: ui-monospace, SFMono-Regular, Menlo, monospace;
-   57	  --font-family-cursive: cursive;
-   58	  --shadow: 0 2px 8px rgb(36 53 40 / 5%);
-   59	  --shadow-md: 0 8px 24px rgb(36 53 40 / 8%);
-   60	  --shadow-lg: 0 18px 48px rgb(36 53 40 / 12%);
-   61	  --shadow-focus: 0 0 0 3px rgb(35 107 75 / 20%);
-   62	  --radius-sm: 0.45rem;
-   63	  --radius: 0.75rem;
-   64	  --radius-md: 1rem;
-   65	  --radius-lg: 1.35rem;
-   66	  --radius-full: 999px;
-   67	  --animation-duration-fast: 140ms;
-   68	  --animation-duration-normal: 220ms;
-   69	  --animation-duration-slow: 360ms;
-   70	  --chart-color-1: #236b4b;
-   71	  --chart-color-2: #d39b43;
-   72	  --chart-color-3: #6d8da2;
-   73	  --chart-color-4: #b96d55;
-   74	  --chart-color-5: #8b82a9;
-   75	}
-   76	
-   77	.dark {
-   78	  --background: #17231c;
-   79	  --foreground: #edf2e9;
-   80	  --surface: #202e25;
-   81	  --surface-foreground: #e7eee5;
-   82	  --sidebar: #1b2921;
-   83	  --sidebar-foreground: #e7eee5;
-   84	  --card: #223128;
-   85	  --card-foreground: #edf2e9;
-   86	  --popup: #26372c;
-   87	  --popup-foreground: #edf2e9;
-   88	  --primary: #7dc39a;
-   89	  --primary-foreground: #14271b;
-   90	  --secondary: #304437;
-   91	  --secondary-foreground: #d8e9db;
-   92	  --accent: #e7b96c;
-   93	  --accent-foreground: #3d2d14;
-   94	  --muted: #2a392f;
-   95	  --muted-foreground: #a8b7aa;
-   96	  --success: #70bf91;
-   97	  --success-foreground: #14271b;
-   98	  --error: #ed8d83;
-   99	  --error-foreground: #341411;
-  100	  --warning: #e8b66d;
-  101	  --warning-foreground: #30200a;
-  102	  --info: #8ab8d8;
-  103	  --info-foreground: #102536;
-  104	  --info-hover: #a3c9e2;
-  105	  --info-active: #bad9eb;
-  106	  --border: #3a4b3e;
-  107	  --shadow: 0 2px 8px rgb(0 0 0 / 15%);
-  108	  --shadow-md: 0 8px 24px rgb(0 0 0 / 20%);
-  109	  --shadow-lg: 0 18px 48px rgb(0 0 0 / 28%);
-  110	  --shadow-focus: 0 0 0 3px rgb(125 195 154 / 24%);
-  111	}
+  --z-critical: 2000; /* Critical system notifications */
+
+  /* spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+}
+
+:root {
+  --background: #f8f7f1;
+  --foreground: #202c25;
+  --surface: #f0efe5;
+  --surface-foreground: #26372c;
+  --sidebar: #eeeee4;
+  --sidebar-foreground: #26372c;
+  --card: #fffef9;
+  --card-foreground: #202c25;
+  --popup: #fffefb;
+  --popup-foreground: #202c25;
+  --primary: #236b4b;
+  --primary-foreground: #ffffff;
+  --secondary: #e4e9df;
+  --secondary-foreground: #31543e;
+  --accent: #e7b96c;
+  --accent-foreground: #3d2d14;
+  --muted: #e9e8df;
+  --muted-foreground: #69756b;
+  --success: #27764f;
+  --success-foreground: #ffffff;
+  --error: #b7443b;
+  --error-foreground: #ffffff;
+  --warning: #a56a19;
+  --warning-foreground: #ffffff;
+  --info: #3d6e91;
+  --info-foreground: #ffffff;
+  --info-hover: #315d7c;
+  --info-active: #264b65;
+  --border: #dedfd4;
+  --font-family-base: 'DM Sans', 'Noto Sans Kannada', 'Noto Sans Devanagari', sans-serif;
+  --font-family-display: 'Fraunces', Georgia, serif;
+  --font-family-monospace: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-family-cursive: cursive;
+  --shadow: 0 2px 8px rgb(36 53 40 / 5%);
+  --shadow-md: 0 8px 24px rgb(36 53 40 / 8%);
+  --shadow-lg: 0 18px 48px rgb(36 53 40 / 12%);
+  --shadow-focus: 0 0 0 3px rgb(35 107 75 / 20%);
+  --radius-sm: 0.45rem;
+  --radius: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.35rem;
+  --radius-full: 999px;
+  --animation-duration-fast: 140ms;
+  --animation-duration-normal: 220ms;
+  --animation-duration-slow: 360ms;
+  --chart-color-1: #236b4b;
+  --chart-color-2: #d39b43;
+  --chart-color-3: #6d8da2;
+  --chart-color-4: #b96d55;
+  --chart-color-5: #8b82a9;
+}
+
+.dark {
+  --background: #17231c;
+  --foreground: #edf2e9;
+  --surface: #202e25;
+  --surface-foreground: #e7eee5;
+  --sidebar: #1b2921;
+  --sidebar-foreground: #e7eee5;
+  --card: #223128;
+  --card-foreground: #edf2e9;
+  --popup: #26372c;
+  --popup-foreground: #edf2e9;
+  --primary: #7dc39a;
+  --primary-foreground: #14271b;
+  --secondary: #304437;
+  --secondary-foreground: #d8e9db;
+  --accent: #e7b96c;
+  --accent-foreground: #3d2d14;
+  --muted: #2a392f;
+  --muted-foreground: #a8b7aa;
+  --success: #70bf91;
+  --success-foreground: #14271b;
+  --error: #ed8d83;
+  --error-foreground: #341411;
+  --warning: #e8b66d;
+  --warning-foreground: #30200a;
+  --info: #8ab8d8;
+  --info-foreground: #102536;
+  --info-hover: #a3c9e2;
+  --info-active: #bad9eb;
+  --border: #3a4b3e;
+  --shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  --shadow-md: 0 8px 24px rgb(0 0 0 / 20%);
+  --shadow-lg: 0 18px 48px rgb(0 0 0 / 28%);
+  --shadow-focus: 0 0 0 3px rgb(125 195 154 / 24%);
+}

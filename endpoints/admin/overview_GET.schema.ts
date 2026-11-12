@@ -1,2 +1,1 @@
-
 import superjson from 'superjson';export type OutputType={stats:any;workers:any[];reviews:any[];complaints:any[];users:any[];recentBookings:any[]};export const getAdminOverview=async():Promise<OutputType>=>{const response=await fetch('/_api/admin/overview');if(!response.ok)throw new Error(superjson.parse<{error:string}>(await response.text()).error);return superjson.parse<OutputType>(await response.text());};

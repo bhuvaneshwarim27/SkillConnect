@@ -1,4 +1,3 @@
-
 import superjson from 'superjson';
 import { authCore } from '../../helpers/authCore';
 export async function handle(request:Request){const user=await authCore.userFromRequest(request);return new Response(superjson.stringify({user:user?{id:user.id,fullName:user.fullName,email:user.email,phone:user.phone,role:user.role,lang:user.lang}:null}),{headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});}

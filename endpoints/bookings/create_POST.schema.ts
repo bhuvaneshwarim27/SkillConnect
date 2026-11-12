@@ -1,4 +1,3 @@
-
 import { z } from 'zod';
 import superjson from 'superjson';
 export const schema=z.object({workerProfileId:z.string().min(1),date:z.string().regex(/^\d{4}-\d{2}-\d{2}$/),slot:z.enum(['morning','afternoon','evening']),address:z.string().trim().min(5).max(250),description:z.string().trim().min(5).max(1200),estimatedHours:z.number().min(.5).max(24)});

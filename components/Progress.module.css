@@ -1,4 +1,3 @@
-
 @layer base {
   .progress {
     width: 100%;
@@ -8,15 +7,15 @@
     overflow: hidden;
     box-shadow: var(--shadow);
     position: relative;
-   10	  }
-   11	  
-   12	  .indicator {
-   13	    position: absolute;
-   14	    width: 100%;
-   15	    height: 100%;
-   16	    background-color: var(--primary);
-   17	    border-radius: var(--radius-full);
-   18	    transform: translateX(-100%);
-   19	    transition: transform var(--animation-duration-normal) ease-out;
-   20	  }
-   21	}
+  }
+  
+  .indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: var(--radius-full);
+    transform: translateX(-100%);
+    transition: transform var(--animation-duration-normal) ease-out;
+  }
+}

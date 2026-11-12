@@ -1,4 +1,3 @@
-
 @layer base {
   .container {
     width: 100%;
@@ -8,155 +7,154 @@
 
   .dropzone {
     position: relative;
-   10	    display: flex;
-   11	    flex-direction: column;
-   12	    align-items: center;
-   13	    justify-content: center;
-   14	
-   15	    padding: var(--spacing-12) var(--spacing-8);
-   16	    border: 2px solid var(--border);
-   17	    border-radius: var(--radius-lg);
-   18	
-   19	    background: linear-gradient(
-   20	      135deg,
-   21	      var(--surface) 0%,
-   22	      color-mix(in srgb, var(--surface), var(--primary) 3%) 100%
-   23	    );
-   24	    color: var(--surface-foreground);
-   25	
-   26	    text-align: center;
-   27	    cursor: pointer;
-   28	
-   29	    transition:
-   30	      border-color var(--animation-duration-normal) ease,
-   31	      background var(--animation-duration-normal) ease,
-   32	      box-shadow var(--animation-duration-normal) ease,
-   33	      transform var(--animation-duration-normal) ease;
-   34	  }
-   35	
-   36	  .dropzone input[type="file"] {
-   37	    position: absolute;
-   38	    width: 1px;
-   39	    height: 1px;
-   40	    padding: 0;
-   41	    margin: -1px;
-   42	    overflow: hidden;
-   43	    clip: rect(0, 0, 0, 0);
-   44	    white-space: nowrap;
-   45	    border: 0;
-   46	  }
-   47	
-   48	  .dropzone:hover {
-   49	    border-color: var(--primary);
-   50	    background: linear-gradient(
-   51	      135deg,
-   52	      color-mix(in srgb, var(--surface), var(--primary) 8%) 0%,
-   53	      color-mix(in srgb, var(--surface), var(--primary) 5%) 100%
-   54	    );
-   55	    box-shadow: var(--shadow-md);
-   56	  }
-   57	
-   58	  .dropzone.dragging {
-   59	    border-color: var(--primary);
-   60	    background: linear-gradient(
-   61	      135deg,
-   62	      color-mix(in srgb, var(--surface), var(--primary) 15%) 0%,
-   63	      color-mix(in srgb, var(--surface), var(--primary) 10%) 100%
-   64	    );
-   65	    box-shadow: var(--shadow-lg);
-   66	    transform: scale(1.02);
-   67	  }
-   68	
-   69	  .dropzone.disabled {
-   70	    cursor: not-allowed;
-   71	    opacity: 0.5;
-   72	    pointer-events: none;
-   73	  }
-   74	
-   75	  .icon {
-   76	    color: var(--muted-foreground);
-   77	    margin-bottom: var(--spacing-4);
-   78	    transition:
-   79	      color var(--animation-duration-normal) ease,
-   80	      transform var(--animation-duration-normal) ease;
-   81	    flex-shrink: 0;
-   82	  }
-   83	
-   84	  .dropzone:hover .icon {
-   85	    color: var(--primary);
-   86	    transform: scale(1.1) translateY(-0.125rem);
-   87	  }
-   88	
-   89	  .dropzone.dragging .icon {
-   90	    color: var(--primary);
-   91	    transform: scale(1.15) translateY(-0.25rem);
-   92	    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-   93	  }
-   94	
-   95	  @keyframes pulse {
-   96	    0%,
-   97	    100% {
-   98	      opacity: 1;
-   99	    }
-  100	    50% {
-  101	      opacity: 0.7;
-  102	    }
-  103	  }
-  104	
-  105	  .title {
-  106	    font-weight: 700;
-  107	    font-size: 1.0625rem;
-  108	    margin-bottom: var(--spacing-3);
-  109	    color: var(--surface-foreground);
-  110	    letter-spacing: -0.01em;
-  111	  }
-  112	
-  113	  .subtitle {
-  114	    font-size: 0.875rem;
-  115	    color: var(--muted-foreground);
-  116	    line-height: 1.5;
-  117	    margin-top: var(--spacing-2);
-  118	  }
-  119	
-  120	  .error {
-  121	    display: flex;
-  122	    align-items: center;
-  123	    justify-content: space-between;
-  124	    gap: var(--spacing-3);
-  125	
-  126	    margin-top: var(--spacing-4);
-  127	    padding: var(--spacing-4) var(--spacing-4);
-  128	
-  129	    background: linear-gradient(
-  130	      135deg,
-  131	      color-mix(in srgb, var(--error) 12%, transparent) 0%,
-  132	      color-mix(in srgb, var(--error) 8%, transparent) 100%
-  133	    );
-  134	    border: 1px solid color-mix(in srgb, var(--error) 30%, transparent);
-  135	    border-radius: var(--radius-md);
-  136	
-  137	    font-size: 0.875rem;
-  138	    font-weight: 500;
-  139	    color: var(--error);
-  140	
-  141	    animation: slideDown var(--animation-duration-normal) ease-out;
-  142	  }
-  143	
-  144	  @keyframes slideDown {
-  145	    from {
-  146	      opacity: 0;
-  147	      transform: translateY(-0.5rem);
-  148	    }
-  149	    to {
-  150	      opacity: 1;
-  151	      transform: translateY(0);
-  152	    }
-  153	  }
-  154	
-  155	  .error button {
-  156	    margin-left: auto;
-  157	    color: var(--error);
-  158	    flex-shrink: 0;
-  159	  }
-  160	}
-  161	
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--spacing-12) var(--spacing-8);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background: linear-gradient(
+      135deg,
+      var(--surface) 0%,
+      color-mix(in srgb, var(--surface), var(--primary) 3%) 100%
+    );
+    color: var(--surface-foreground);
+
+    text-align: center;
+    cursor: pointer;
+
+    transition:
+      border-color var(--animation-duration-normal) ease,
+      background var(--animation-duration-normal) ease,
+      box-shadow var(--animation-duration-normal) ease,
+      transform var(--animation-duration-normal) ease;
+  }
+
+  .dropzone input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .dropzone:hover {
+    border-color: var(--primary);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface), var(--primary) 8%) 0%,
+      color-mix(in srgb, var(--surface), var(--primary) 5%) 100%
+    );
+    box-shadow: var(--shadow-md);
+  }
+
+  .dropzone.dragging {
+    border-color: var(--primary);
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--surface), var(--primary) 15%) 0%,
+      color-mix(in srgb, var(--surface), var(--primary) 10%) 100%
+    );
+    box-shadow: var(--shadow-lg);
+    transform: scale(1.02);
+  }
+
+  .dropzone.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .icon {
+    color: var(--muted-foreground);
+    margin-bottom: var(--spacing-4);
+    transition:
+      color var(--animation-duration-normal) ease,
+      transform var(--animation-duration-normal) ease;
+    flex-shrink: 0;
+  }
+
+  .dropzone:hover .icon {
+    color: var(--primary);
+    transform: scale(1.1) translateY(-0.125rem);
+  }
+
+  .dropzone.dragging .icon {
+    color: var(--primary);
+    transform: scale(1.15) translateY(-0.25rem);
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 1.0625rem;
+    margin-bottom: var(--spacing-3);
+    color: var(--surface-foreground);
+    letter-spacing: -0.01em;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    line-height: 1.5;
+    margin-top: var(--spacing-2);
+  }
+
+  .error {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-3);
+
+    margin-top: var(--spacing-4);
+    padding: var(--spacing-4) var(--spacing-4);
+
+    background: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--error) 12%, transparent) 0%,
+      color-mix(in srgb, var(--error) 8%, transparent) 100%
+    );
+    border: 1px solid color-mix(in srgb, var(--error) 30%, transparent);
+    border-radius: var(--radius-md);
+
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--error);
+
+    animation: slideDown var(--animation-duration-normal) ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .error button {
+    margin-left: auto;
+    color: var(--error);
+    flex-shrink: 0;
+  }
+}

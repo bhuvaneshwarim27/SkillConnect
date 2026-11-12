@@ -1,8 +1,6 @@
-
 import superjson from 'superjson';
 import { db } from '../../helpers/db';
 import { authCore } from '../../helpers/authCore';
 import { schema, type OutputType } from './login_POST.schema';
 const fakeHash = '$2b$12$AFuDoPjdjSBjihJSa/ru4OZE5UX85d3R4L9sIaHEpAFsRhR1Jyrwu';
 export async function handle(request:Request){try{const input=schema.parse(superjson.parse(await request.text()));const user=await db.selectFrom('users').selectAll().where('email','=',input.email).executeTakeFirst();const valid=await authCore.verifyPassword(input.password,user?.passwordHash||fakeHash);if(!user||!valid||!user.isActive)return new Response(superjson.stringify({error:'Email or password is incorrect.'}),{status:401,headers:{'Content-Type':'application/json'}});const token=await authCore.createSession(user.id);const output={user:{id:user.id,fullName:user.fullName,email:user.email,phone:user.phone,role:user.role,lang:user.lang},message:'Welcome back!'} satisfies OutputType;return new Response(superjson.stringify(output),{headers:{'Content-Type':'application/json','Set-Cookie':authCore.sessionCookie(token)}});}catch(error){return new Response(superjson.stringify({error:error instanceof Error?error.message:'Could not sign in.'}),{status:400,headers:{'Content-Type':'application/json'}});}}
-

@@ -1,2 +1,1 @@
-
 import superjson from 'superjson';export type OutputType={messages:any[];closed:boolean};export const getChatMessages=async(bookingId:string):Promise<OutputType>=>{const response=await fetch(`/_api/chat/messages?bookingId=${encodeURIComponent(bookingId)}`);if(!response.ok)throw new Error(superjson.parse<{error:string}>(await response.text()).error);return superjson.parse<OutputType>(await response.text());};
