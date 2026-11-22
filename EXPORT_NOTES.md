@@ -1,7 +1,19 @@
 # Export notes
 
-- This archive preserves the current readable project files and is intended as a source backup for GitHub.
-- Floot's official code export is assembled in the browser and includes extra runtime files; this archive is not represented as that official export.
-- No database dump, secrets, Floot server scaffolding, or externally hosted uploaded assets are included.
-- Example component files are included as found in the source tree.
-- The project is not certified as runnable outside Floot without a migration pass.
+This repository preserves a readable source snapshot of the SkillConnect project for version control and portfolio reference.
+
+## Included
+- React/TypeScript page source and CSS modules
+- Serverless endpoint handlers and request schemas
+- Shared authentication, database and UI helper source
+- Shared styles and Floot development metadata
+
+## Not included
+- Floot's complete official code export and platform runtime
+- Root package manifest, lockfile, application bootstrap/build configuration, or endpoint router
+- Database migrations, seed scripts, or database dump
+- Secrets, production credentials, or externally hosted uploaded assets
+
+The endpoint handlers and database helpers are designed for Floot's supported runtime. This repository is therefore a source backup and is **not certified as independently installable, runnable, or deployable** without the complete official export and a database setup/migration pass.
+
+Example component files are retained as found in the source tree.
