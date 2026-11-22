@@ -1,41 +1,62 @@
-# SkillConnect — source snapshot
+# 🤝 SkillConnect – Local Skill & Service Marketplace
 
-This repository contains the source files currently readable from the SkillConnect project in Floot.
+SkillConnect is a web-based platform that connects skilled workers with customers looking for reliable local services. It helps customers discover workers, explore their skills, book services, and communicate through a centralized platform.
 
-SkillConnect is a local skills and job marketplace concept for Kalaburagi, Karnataka. The app source includes React/TypeScript pages, CSS Modules, UI components, typed API endpoints, Kysely database schema helpers, and authentication/booking/review/chat/admin logic.
+## ✨ Key Features
 
-## Important: source snapshot, not Floot's official runnable export
+- **Worker Profiles:** Skilled workers can showcase their skills, experience, and services.
+- **Skill & Location Search:** Find workers based on their skills and location.
+- **Service Booking:** Customers can book workers for required services.
+- **Ratings & Reviews:** Customers can share feedback about completed services.
+- **Real-Time Chat:** Enables communication between customers and workers.
+- **Worker Verification:** Supports worker profile verification.
+- **Fair Price Estimation:** Helps customers understand estimated service costs.
+- **Smart Matching:** Helps connect customers with suitable workers.
+- **Booking Notifications:** Provides updates about booking requests and responses.
+- **Booking Management:** Helps manage service requests and booking statuses.
 
-This archive was assembled from the project files accessible to the Floot connector. It is **not** the official Floot code ZIP. Floot's browser export adds runtime/server scaffolding and environment templates that are not available through the connector. The current source also relies on Floot's managed PostgreSQL connection and hosting conventions.
+## 🛠️ Tech Stack
 
-Therefore, uploading this archive to GitHub preserves the source, but does not by itself guarantee that the application can be launched outside Floot unchanged. To self-host it, you will need to add/replace the runtime server scaffolding, configure your own PostgreSQL database, restore/create the database schema and seed data, configure environment variables, and migrate any platform-specific behavior. Do not publish secrets or real user data.
+- **Frontend:** React, TypeScript, JavaScript
+- **Web Technologies:** HTML, CSS
+- **Database:** PostgreSQL
+- **Maps:** Leaflet, OpenStreetMap
 
-## Project structure
+## 🎯 Project Objective
 
-- `pages/` — homepage, login, registration, worker detail pages and styles
-- `components/` — shared UI components and styles
-- `endpoints/` — backend API endpoint handlers and request/response schemas
-- `helpers/` — database schema, authentication, UI state, hooks and utilities
-- `base.css` — global design tokens and base styles
-- `static/__dev/` — project design notes, dependency metadata and development configuration
+The primary objective of SkillConnect is to create an accessible platform where skilled individuals can connect with potential customers, find work opportunities, and showcase their abilities.
 
-## Stack in this source snapshot
+It aims to simplify local service discovery while providing customers with a convenient way to find and book skilled professionals.
 
-- React + TypeScript
-- CSS Modules
-- Kysely + PostgreSQL
-- bcryptjs, jose, superjson, zod
-- Floot-managed hosting/runtime conventions
+## 🚀 How It Works
 
-## Demo credentials
+1. Customers explore available skilled workers.
+2. Search for workers based on skills and location.
+3. View worker profiles and service details.
+4. Send booking requests.
+5. Receive booking updates and notifications.
+6. Communicate with workers through chat.
+7. Share ratings and reviews after service completion.
 
-The original project brief mentions demo accounts. Treat any demo credentials as development-only and change them before any public deployment. Never reuse real passwords.
+## 🔮 Future Enhancements
 
-## Suggested next steps
+- Secure payment integration.
+- Advanced AI-powered worker recommendations.
+- Improved worker verification.
+- Enhanced location-based services.
+- Dedicated mobile application.
+- Expanded service categories.
 
-1. Commit this source snapshot to your own GitHub repository.
-2. Keep the original Floot preview as the reference for visual comparisons.
-3. Before self-hosting, migrate the database and hosting dependencies and run type checks/tests.
-4. Review authentication, authorization, and demo seed data before making a public deployment.
+## 📌 Project Information
 
-Generated from the current Floot project files; no official server bundle or database dump is included.
+**Project Name:** SkillConnect
+
+**Category:** Web Development
+
+**Project Type:** Local Skill & Service Marketplace
+
+**Status:** Development
+
+---
+
+*Connecting skills with opportunities.* 🤝
